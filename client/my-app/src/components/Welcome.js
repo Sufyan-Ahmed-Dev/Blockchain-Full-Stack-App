@@ -34,28 +34,28 @@ function Welcome() {
 
                                                         <div className="d-flex align-items-center mb-3 pb-1">
                                                             <i className="fas fa-cubes fa-2x me-3" ></i>
-                                                            <span className="h1 fw-bold mb-0">Login</span>
+                                                            <span className="h2 fw-bold mb-0">Transfer</span>
                                                         </div>
 
                                                         {/* <h5 className="fw-normal mb-3 pb-3">Sign into your account</h5> */}
 
                                                         <div className="form-outline mb-3">
-                                                            <input type="text" id="form2Example17" className="form-control form-control-lg" placeholder='Enter Your Address' />
+                                                            <input type="text" id="form2Example17" className="form-control" placeholder='Enter Your Address' />
                                                             {/* <label className="form-label" Htmlfor="form2Example17">Account Address</label> */}
                                                         </div>
 
                                                         <div className="form-outline mb-3">
-                                                            <input type="number" id="form2Example27" className="form-control form-control-lg" placeholder='Enter Ether'/>
+                                                            <input type="number" id="form2Example27" className="form-control " placeholder='Enter Ether'/>
                                                             {/* <label className="form-label" Htmlfor="form2Example27"> Balance</label> */}
                                                         </div>
 
                                                         <div className="form-outline mb-3">
-                                                            <input type="text" id="form2Example27" className="form-control form-control-lg" placeholder='Enter Keyword' />
+                                                            <input type="text" id="form2Example27" className="form-control " placeholder='Enter Keyword' />
                                                             {/* <label className="form-label" Htmlfor="form2Example27">Keywork</label> */}
                                                         </div>
 
                                                         <div className="form-outline mb-3">
-                                                            <input type="text" id="form2Example27" className="form-control form-control-lg" placeholder='Enter Message' />
+                                                            <input type="text" id="form2Example27" className="form-control " placeholder='Enter Message' />
                                                             {/* <label className="form-label" Htmlfor="form2Example27">Text Message</label> */}
                                                         </div>
 
