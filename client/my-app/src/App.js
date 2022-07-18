@@ -2,6 +2,7 @@ import Navbar from "./components/Navbar"
 import './App.css';
 import Welcome from "./components/Welcome";
 import Transiction from "./components/Transiction";
+import Footer from "./components/Footer";
 function App() {
   return (
     <div className="App">
@@ -13,7 +14,8 @@ function App() {
        <Welcome></Welcome>
        <div className="mt-5"></div>
        <Transiction></Transiction>
-    
+       <div className="mt-5"></div>
+       <Footer></Footer>
     </div>
   );
 }
