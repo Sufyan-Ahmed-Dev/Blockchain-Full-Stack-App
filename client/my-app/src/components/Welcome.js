@@ -50,11 +50,6 @@ function Welcome() {
                                                         </div>
 
                                                         <div className="form-outline mb-3">
-                                                            <input type="text" id="form2Example27" className="form-control " placeholder='Enter Keyword' />
-                                                            {/* <label className="form-label" Htmlfor="form2Example27">Keywork</label> */}
-                                                        </div>
-
-                                                        <div className="form-outline mb-3">
                                                             <input type="text" id="form2Example27" className="form-control " placeholder='Enter Message' />
                                                             {/* <label className="form-label" Htmlfor="form2Example27">Text Message</label> */}
                                                         </div>
