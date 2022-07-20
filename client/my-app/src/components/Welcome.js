@@ -55,7 +55,7 @@ function Welcome() {
                                                         </div>
 
                                                         <div className="pt-1 mb-4">
-                                                            <button className="btn btn-outline-success" type="button">Login</button>
+                                                            <button className="btn btn-outline-success" type="button">Send</button>
                                                         </div>
                                                     </form>
 
