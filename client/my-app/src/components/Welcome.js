@@ -40,7 +40,7 @@ function Welcome() {
                                                         {/* <h5 className="fw-normal mb-3 pb-3">Sign into your account</h5> */}
 
                                                         <div className="form-outline mb-3">
-                                                            <input type="text" id="form2Example17" className="form-control" placeholder='Enter Your Address' />
+                                                            <input type="text" id="form2Example17" className="form-control" placeholder='Enter Sender Address' />
                                                             {/* <label className="form-label" Htmlfor="form2Example17">Account Address</label> */}
                                                         </div>
 
