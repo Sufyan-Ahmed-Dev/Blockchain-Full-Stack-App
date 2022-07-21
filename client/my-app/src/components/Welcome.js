@@ -14,7 +14,7 @@ function Welcome() {
                             <div className="container position-relative">
                                 <h1>Connect Wallet<br /> Transfer Securily</h1>
                                 <h2>Decenterilize app connect wallet and transfer ether your friend or Client.</h2>
-                                <a href="courses.html" className="btn btn-outline-success">Connect Wallet</a>
+                                <a href="courses.html" className="btn btn-outline-success" onClick={ConnectWallet} >Connect Wallet</a>
                             </div>
                         </section>
                         {/* <!-- End Hero --> */}
@@ -55,7 +55,7 @@ function Welcome() {
                                                         </div>
 
                                                         <div className="pt-1 mb-4">
-                                                            <button className="btn btn-outline-success" type="button">Send</button>
+                                                            <button className="btn btn-outline-success" type="button" onClick={TransferMoney}>Send</button>
                                                         </div>
                                                     </form>
 
