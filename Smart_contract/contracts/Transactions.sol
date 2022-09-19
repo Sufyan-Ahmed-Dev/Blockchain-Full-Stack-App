@@ -20,9 +20,11 @@ contract Transactions {
     }
 
     TransferStruct[] transactions;
+      uint  ConvertInEither = 1000000000000000000;
 
-    function addToBlockchain(address payable receiver, uint amount, string memory message, string memory keyword) public {
+    function addToBlockchain(address receiver, uint amount, string memory message, string memory keyword) public {
         transactionCount += 1;
+        amount = amount*ConvertInEither;
         transactions.push(TransferStruct(msg.sender, receiver, amount, message, block.timestamp, keyword));
 
         emit Transfer(msg.sender, receiver, amount, message, block.timestamp, keyword);

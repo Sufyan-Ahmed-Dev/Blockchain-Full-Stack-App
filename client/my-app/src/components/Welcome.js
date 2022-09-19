@@ -1,6 +1,10 @@
 import React from 'react'
 
 function Welcome() {
+    function ConnectWallet(){}
+
+    function TransferMoney(){}
+    
     return (
         <>
             <div className="container ">
