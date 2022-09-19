@@ -1,12 +1,12 @@
 const hre = require("hardhat");
 
 async function main() {
-  const Transactions = await hre.ethers.getContractFactory("Transactions");
-  const transactions = await Transactions.deploy();
+  const NFTMarketPlace = await hre.ethers.getContractFactory("NFTMarketPlace");
+  const NFTmarketplace = await NFTMarketPlace.deploy();
 
-  await transactions.deployed();
+  await NFTmarketplace.deployed();
 
-  console.log(" Transfer Contract deployed to:", transactions.address);
+  console.log(" Transfer Contract deployed to:", NFTmarketplace.address);
 }
 
 main().catch((error) => {
