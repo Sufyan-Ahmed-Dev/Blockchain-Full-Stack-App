@@ -6,6 +6,9 @@ import Footer from "./components/Footer";
 import WhiteListUser from "./components/WhiteListUser";
 import WhiteListAdminMInting from "./components/WhiteListAdminMInting";
 import PublicMinting from "./components/PublicMinting";
+import AddAdmin from "./components/AddAdmin";
+import AddUser from "./components/AddUser";
+import UpdateBaseUri from "./components/UpdateBaseUri";
 function App() {
   return (
     <div className="App">
@@ -17,6 +20,7 @@ function App() {
        <Welcome></Welcome>
        
        <div className="container">
+        <h2 className="text-center">All Functions</h2>
         <div className="row justify-content-center">
           <div className="col-lg-4 col-md-6 col-sm-12">
           <WhiteListUser></WhiteListUser>
@@ -26,6 +30,15 @@ function App() {
           </div>
           <div className="col-lg-4 col-md-6 col-sm-12">
           <PublicMinting></PublicMinting>
+          </div>
+          <div className="col-lg-4 col-md-6 col-sm-12">
+          <AddAdmin></AddAdmin>
+          </div>
+          <div className="col-lg-4 col-md-6 col-sm-12">
+          <AddUser></AddUser>
+          </div>
+          <div className="col-lg-4 col-md-6 col-sm-12">
+          <UpdateBaseUri></UpdateBaseUri>
           </div>
         </div>
        </div>
