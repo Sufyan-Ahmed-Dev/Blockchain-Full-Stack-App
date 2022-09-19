@@ -3,7 +3,6 @@ function Navbar() {
   return (
    <>
  {/* <!-- ======= Header ======= --> */}
-
  <header id="header" className="fixed-top">
     <div className="container d-flex align-items-center">
 
