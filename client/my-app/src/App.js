@@ -9,6 +9,14 @@ import PublicMinting from "./components/PublicMinting";
 import AddAdmin from "./components/AddAdmin";
 import AddUser from "./components/AddUser";
 import UpdateBaseUri from "./components/UpdateBaseUri";
+import RemoveUser from "./components/RemoveUser";
+import RemoveAdmin from "./components/RemoveAdmin";
+import TokenURI from "./components/TokenURI";
+import BalanceOf from "./components/BalanceOf";
+import OwnerOf from "./components/OwnerOf";
+import NFTName from "./components/NFTName";
+import CheckWhiteListAdmin from "./components/CheckWhiteListAdmin";
+import CheckWhiteListUser from "./components/CheckWhiteListUser";
 function App() {
   return (
     <div className="App">
@@ -40,6 +48,30 @@ function App() {
           <div className="col-lg-4 col-md-6 col-sm-12">
           <UpdateBaseUri></UpdateBaseUri>
           </div>
+          <div className="col-lg-4 col-md-6 col-sm-12">
+           <RemoveUser></RemoveUser>
+          </div>
+          <div className="col-lg-4 col-md-6 col-sm-12">
+          <RemoveAdmin></RemoveAdmin>
+           </div>
+           <div className="col-lg-4 col-md-6 col-sm-12">
+            <TokenURI></TokenURI>
+           </div>
+           <div className="col-lg-4 col-md-6 col-sm-12">
+          <BalanceOf></BalanceOf>
+           </div>
+           <div className="col-lg-4 col-md-6 col-sm-12">
+            <OwnerOf></OwnerOf>
+           </div>
+           <div className="col-lg-4 col-md-6 col-sm-12">
+            <NFTName></NFTName>
+           </div>
+           <div className="col-lg-4 col-md-6 col-sm-12">
+            <CheckWhiteListAdmin></CheckWhiteListAdmin>
+           </div>
+           <div className="col-lg-4 col-md-6 col-sm-12">
+            <CheckWhiteListUser></CheckWhiteListUser>
+           </div>
         </div>
        </div>
        
