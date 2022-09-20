@@ -17,6 +17,7 @@ import OwnerOf from "./components/OwnerOf";
 import NFTName from "./components/NFTName";
 import CheckWhiteListAdmin from "./components/CheckWhiteListAdmin";
 import CheckWhiteListUser from "./components/CheckWhiteListUser";
+import Button from "./components/Button";
 function App() {
   return (
     <div className="App">
@@ -26,9 +27,11 @@ function App() {
        <div className="mt-5"></div>
        <div className="mt-5"></div>
        <Welcome></Welcome>
-       
-       <div className="container">
-        <h2 className="text-center">All Functions</h2>
+       <h2 className="text-center my-5">All Buttons</h2>
+       <Button></Button>
+      
+       <div className="container my-5">
+       <h2 className="text-center">All Functions</h2>
         <div className="row justify-content-center">
           <div className="col-lg-4 col-md-6 col-sm-12">
           <WhiteListUser></WhiteListUser>

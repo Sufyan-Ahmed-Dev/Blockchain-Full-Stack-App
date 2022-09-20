@@ -21,7 +21,7 @@ function Welcome() {
 
                             <div className="container position-relative">
                                 <h2>Connect Wallet Transfer Securily</h2>
-                                <h4>Decenterilize app connect wallet and transfer ether your friend or Client.</h4>
+                                <h4>Decenterilize app connect wallet and minting NFT's For OpenSea</h4>
                                 <a href="courses.html" className="btn btn-outline-success mt-3" onClick={ConnectWallet} >Connect Wallet</a>
                             </div>
                         </section>
