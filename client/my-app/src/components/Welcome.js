@@ -1,10 +1,27 @@
 import React from 'react'
+import { useState } from 'react';
 
 function Welcome() {
-    function ConnectWallet() {
-        alert("Connect Wallet Function Work Pending")
-    }
 
+    const [WalletAddress , setWalletAddress]  = useState("");
+async function ConnectWallet (){
+    // alert("account working")
+     
+    if (window.ethereum){
+        console.log("detacted");
+        try{
+             const Account = await window.ethereum.request({
+                method : "eth_requestAccounts"
+             })
+             setWalletAddress(Account[0]);
+        } catch{
+            console.log("Error Connecting...")
+        }
+    }
+    else{
+        console.log("detactive")
+    }
+}
     // function TransferMoney() {
     //     alert("NFT minting Func will be pending")
     // }
@@ -49,7 +66,7 @@ function Welcome() {
                                         </div>
 
                                         <div className="form-outline mb-3">
-                                           <p className="form-control ">Your Address : 0x </p>
+                                           <p className="form-control ">Your Address : {WalletAddress} </p>
                                         </div>
 
                                         <div className="form-outline mb-3">

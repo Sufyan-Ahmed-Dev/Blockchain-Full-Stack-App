@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 
 function Footer() {
   return (
@@ -60,7 +60,7 @@ function Footer() {
                   {/* <!-- Email input --> */}
                   <div className="form-outline form-white mb-4">
                     <input type="email" id="form5Example21" className="form-control" />
-                    <label className="form-label" for="form5Example21">Email address</label>
+                    <label className="form-label" htmlFor="form5Example21">Email address</label>
                   </div>
                 </div>
                 {/* <!--Grid column--> */}
