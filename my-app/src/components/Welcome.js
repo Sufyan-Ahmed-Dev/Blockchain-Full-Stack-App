@@ -1,27 +1,65 @@
 import React from 'react'
 import { useState } from 'react';
+import { ethers } from "ethers";
 
 function Welcome() {
 
-    const [WalletAddress , setWalletAddress]  = useState("");
+
+  // usetstate for storing and retrieving wallet details
+  const [data, setdata] = useState({
+    address: "",
+    Balance: null,
+  });
+  
+   // Function for getting handling all events
+   const accountChangeHandler = (account) => {
+    // Setting an address data
+    setdata({
+      address: account,
+    });
+  
+    // Setting a balance
+    getbalance(account);
+  };
 async function ConnectWallet (){
-    console.log("detacted");
-     
-    if (window.ethereum){
-   
-        try{
-             const Account = await window.ethereum.request({
-                method : "eth_requestAccounts"
-             })
-             setWalletAddress(Account[0]);
-        } catch{
-            console.log("Error Connecting...")
-        }
+    // Asking if metamask is already present or not
+    try {
+        if (window.ethereum) {
+  
+        const accounts = await window.ethereum.request({ method: "eth_requestAccounts", });
+        console.log(accounts);
+        const detail = accountChangeHandler(accounts[0]);
+        return detail
     }
-    else{
-        console.log("detactive")
-    }
-}
+       
+      } catch (error) {
+        console.log(error);
+  
+        throw new Error("No ethereum object");
+      }
+    };
+
+ 
+
+   // getbalance function for getting a balance in
+  // a right format with help of ethers
+  const getbalance = (address) => {
+  
+    // Requesting balance method
+    window.ethereum
+      .request({ 
+        method: "eth_getBalance", 
+        params: [address, "latest"] 
+      })
+      .then((balance) => {
+        // Setting balance
+        setdata({
+          Balance: ethers.utils.formatEther(balance),
+        });
+      });
+  };
+  
+
     // function TransferMoney() {
     //     alert("NFT minting Func will be pending")
     // }
@@ -62,19 +100,19 @@ async function ConnectWallet (){
                                         {/* <h5 className="fw-normal mb-3 pb-3">Sign into your account</h5> */}
 
                                         <div className="form-outline mb-3">
-                                        <p className="form-control "> Owner Address : 0x</p> 
+                                        <p className="form-control "> Owner Address : Owner Address</p> 
                                         </div>
 
                                         <div className="form-outline mb-3">
-                                           <p className="form-control ">Your Address : {WalletAddress} </p>
+                                           <p className="form-control ">Your Address :  {data.address} </p>
                                         </div>
 
                                         <div className="form-outline mb-3">
-                                        <p className="form-control "> Total Balnce : 13.5789</p> 
+                                        <p className="form-control "> Total Balnce : {data.Balance}</p> 
                                         </div>
 
                                         <div className="pt-1 mb-4">
-                                            <button className="btn btn-outline-success" type="button" >Change Wallet</button>
+                                            <button className="btn btn-outline-success" type="button"  >Change Wallet</button>
                                         </div>
                                     </form>
 

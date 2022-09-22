@@ -3,7 +3,7 @@ import Navbar from "./components/Navbar"
 import './App.css';
 import Welcome from "./components/Welcome";
 import Transiction from "./components/Transiction";
-import Footer from "./components/Footer";
+// import Footer from "./components/Footer";
 import WhiteListUser from "./components/WhiteListUser";
 import WhiteListAdminMInting from "./components/WhiteListAdminMInting";
 import PublicMinting from "./components/PublicMinting";
@@ -21,6 +21,7 @@ import CheckWhiteListUser from "./components/CheckWhiteListUser";
 import Button from "./components/Button";
 function App() {
   return (
+    <>
     <div className="App">
       
        <Navbar></Navbar>
@@ -89,8 +90,9 @@ function App() {
        <div className="mt-5"></div>
        <Transiction></Transiction>
        <div className="mt-5"></div>
-       <Footer></Footer>
+       {/* <Footer></Footer> */}
     </div>
+    </>
   );
 }
 
