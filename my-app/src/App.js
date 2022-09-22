@@ -1,3 +1,4 @@
+import React from "react";
 import Navbar from "./components/Navbar"
 import './App.css';
 import Welcome from "./components/Welcome";
@@ -27,11 +28,15 @@ function App() {
        <div className="mt-5"></div>
        <div className="mt-5"></div>
        <Welcome></Welcome>
-       <h2 className="text-center my-5">All Buttons</h2>
+       <div className="mt-5"></div>
+       <div className="mt-5"></div>
        <Button></Button>
       
        <div className="container my-5">
-       <h2 className="text-center">All Functions</h2>
+       <div className="section-title">
+            {/* <h2>Courses</h2> */}
+            <p>All Functions</p>
+          </div>
         <div className="row justify-content-center">
           <div className="col-lg-4 col-md-6 col-sm-12">
           <WhiteListUser></WhiteListUser>

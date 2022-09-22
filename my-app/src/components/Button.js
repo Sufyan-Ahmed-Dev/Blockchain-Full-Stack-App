@@ -5,9 +5,13 @@ function Button() {
       <>
       <div className='container'>
 
+      <div className="section-title">
+            {/* <h2>Courses</h2> */}
+            <p>All Buttons</p>
+          </div>
       
       <div className="row justify-content-center  g-4">
-        
+  
       <div className="pt-1 col">
             <button className="btn btn-outline-success" type="button" >ActivePsales</button>
       </div>

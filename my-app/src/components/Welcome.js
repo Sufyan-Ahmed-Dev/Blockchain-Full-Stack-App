@@ -5,10 +5,10 @@ function Welcome() {
 
     const [WalletAddress , setWalletAddress]  = useState("");
 async function ConnectWallet (){
-    // alert("account working")
+    console.log("detacted");
      
     if (window.ethereum){
-        console.log("detacted");
+   
         try{
              const Account = await window.ethereum.request({
                 method : "eth_requestAccounts"
