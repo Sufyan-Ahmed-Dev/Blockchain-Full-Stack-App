@@ -1,63 +1,42 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useState } from 'react';
-import { ethers } from "ethers";
+import Web3 from 'web3';
 
 function Welcome() {
 
 
   // usetstate for storing and retrieving wallet details
-  const [data, setdata] = useState({
-    address: "",
-    Balance: null,
-  });
-  
-   // Function for getting handling all events
-   const accountChangeHandler = (account) => {
-    // Setting an address data
-    setdata({
-      address: account,
-    });
-  
-    // Setting a balance
-    getbalance(account);
-  };
+  const [Address, setAddress] = useState('');
+  const [Balance, setBalance] = useState('');
+  const [Network, setNetwork] =useState('');
+
+  useEffect(()=>{
+  // Function for getting handling all events
+    const web3 = new Web3(Web3.givenProvider);
 async function ConnectWallet (){
-    // Asking if metamask is already present or not
-    try {
-        if (window.ethereum) {
-  
-        const accounts = await window.ethereum.request({ method: "eth_requestAccounts", });
-        console.log(accounts);
-        const detail = accountChangeHandler(accounts[0]);
-        return detail
-    }
-       
-      } catch (error) {
-        console.log(error);
-  
-        throw new Error("No ethereum object");
-      }
-    };
+    const Account = await web3.eth.requestAccounts();
+    setAddress(Account[0]);
+  }
 
- 
+  async function CheckBalance(){
 
-   // getbalance function for getting a balance in
-  // a right format with help of ethers
-  const getbalance = (address) => {
-  
-    // Requesting balance method
-    window.ethereum
-      .request({ 
-        method: "eth_getBalance", 
-        params: [address, "latest"] 
-      })
-      .then((balance) => {
-        // Setting balance
-        setdata({
-          Balance: ethers.utils.formatEther(balance),
-        });
-      });
-  };
+     const network = await web3.eth.net.getNetworkType();
+     const balance = await web3.eth.getBalance(Address);
+   
+
+     setNetwork(network)
+     console.log(network)
+     setBalance(balance);
+     console.log(balance)
+  }
+
+
+
+  ConnectWallet();
+  CheckBalance();
+
+},[Address]
+  )
   
 
     // function TransferMoney() {
@@ -77,7 +56,7 @@ async function ConnectWallet (){
                             <div className="container position-relative">
                                 <h2>Connect Wallet Transfer Securily</h2>
                                 <h4>Decenterilize app connect wallet and minting NFT's For OpenSea</h4>
-                                <a href="courses.html" className="btn btn-outline-success mt-3" onClick={ConnectWallet} >Connect Wallet</a>
+                                <a href="courses.html" className="btn btn-outline-success mt-3"  >Connect Wallet</a>
                             </div>
                         </section>
                         {/* <!-- End Hero --> */}
@@ -104,11 +83,11 @@ async function ConnectWallet (){
                                         </div>
 
                                         <div className="form-outline mb-3">
-                                           <p className="form-control ">Your Address :  {data.address} </p>
+                                           <p className="form-control ">Your Address :  {Address} </p>
                                         </div>
 
                                         <div className="form-outline mb-3">
-                                        <p className="form-control "> Total Balnce : {data.Balance}</p> 
+                                        <p className="form-control "> Total Balnce ({Network}): {Balance}</p> 
                                         </div>
 
                                         <div className="pt-1 mb-4">
