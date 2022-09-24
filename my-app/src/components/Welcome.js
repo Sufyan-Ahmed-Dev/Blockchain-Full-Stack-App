@@ -1,48 +1,57 @@
 import React, { useEffect } from 'react'
 import { useState } from 'react';
-import Web3 from 'web3';
+import {ethers} from 'ethers'
 
 function Welcome() {
 
 
-  // usetstate for storing and retrieving wallet details
-  const [Address, setAddress] = useState('');
-  const [Balance, setBalance] = useState('');
-  const [Network, setNetwork] =useState('');
-
-  useEffect(()=>{
-  // Function for getting handling all events
-    const web3 = new Web3(Web3.givenProvider);
-async function ConnectWallet (){
-    const Account = await web3.eth.requestAccounts();
-    setAddress(Account[0]);
-  }
-
-  async function CheckBalance(){
-
-     const network = await web3.eth.net.getNetworkType();
-     const balance = await web3.eth.getBalance(Address);
-   
-
-     setNetwork(network)
-     console.log(network)
-     setBalance(balance);
-     console.log(balance)
-  }
-
-
-
-  ConnectWallet();
-  CheckBalance();
-
-},[Address]
-  )
+    const [errorMessage, setErrorMessage] = useState(null);
+    const [account, setAccount] = useState(null);
+    const [balance, setBalance] = useState(null);
   
-
-    // function TransferMoney() {
-    //     alert("NFT minting Func will be pending")
-    // }
-
+    useEffect(() => {
+      if (window.ethereum) {
+        window.ethereum.on("accountsChanged", accountsChanged);
+        window.ethereum.on("chainChanged", chainChanged);
+      }
+    }, []);
+  
+    const connectHandler = async () => {
+      if (window.ethereum) {
+        try {
+          const res = await window.ethereum.request({
+            method: "eth_requestAccounts",
+          });
+          await accountsChanged(res[0]);
+        } catch (err) {
+          console.error(err);
+          setErrorMessage("There was a problem connecting to MetaMask");
+        }
+      } else {
+        setErrorMessage("Install MetaMask");
+      }
+    };
+  
+    const accountsChanged = async (newAccount) => {
+      setAccount(newAccount);
+      try {
+        const balance = await window.ethereum.request({
+          method: "eth_getBalance",
+          params: [newAccount.toString(), "latest"],
+        });
+        setBalance(ethers.utils.formatEther(balance));
+      } catch (err) {
+        console.error(err);
+        setErrorMessage("There was a problem connecting to MetaMask");
+      }
+    };
+  
+    const chainChanged = () => {
+      setErrorMessage(null);
+      setAccount(null);
+      setBalance(null);
+    };
+  
     return (
         <>
             <div className="container ">
@@ -56,7 +65,7 @@ async function ConnectWallet (){
                             <div className="container position-relative">
                                 <h2>Connect Wallet Transfer Securily</h2>
                                 <h4>Decenterilize app connect wallet and minting NFT's For OpenSea</h4>
-                                <a href="courses.html" className="btn btn-outline-success mt-3"  >Connect Wallet</a>
+                                <a href="courses.html" className="btn btn-outline-success mt-3" onClick={connectHandler} >Connect Wallet</a>
                             </div>
                         </section>
                         {/* <!-- End Hero --> */}
@@ -83,16 +92,17 @@ async function ConnectWallet (){
                                         </div>
 
                                         <div className="form-outline mb-3">
-                                           <p className="form-control ">Your Address :  {Address} </p>
+                                           <p className="form-control ">Your Address :  {account} </p>
                                         </div>
 
                                         <div className="form-outline mb-3">
-                                        <p className="form-control "> Total Balnce ({Network}): {Balance}</p> 
+                                        <p className="form-control "> Total Balnce : {balance}</p> 
                                         </div>
 
                                         <div className="pt-1 mb-4">
                                             <button className="btn btn-outline-success" type="button"  >Change Wallet</button>
                                         </div>
+                                        <p>Any Error :: {errorMessage}</p>
                                     </form>
 
                                 </div>
