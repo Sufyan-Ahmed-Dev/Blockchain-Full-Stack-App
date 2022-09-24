@@ -3,8 +3,6 @@ import { useState } from 'react';
 import {ethers} from 'ethers'
 
 function Welcome() {
-
-
     const [errorMessage, setErrorMessage] = useState(null);
     const [account, setAccount] = useState(null);
     const [balance, setBalance] = useState(null);
@@ -18,7 +16,7 @@ function Welcome() {
   
     const connectHandler = async () => {
       if (window.ethereum) {
-        try {
+          try {
           const res = await window.ethereum.request({
             method: "eth_requestAccounts",
           });
@@ -72,7 +70,7 @@ function Welcome() {
 
                     </div>
                     <div className='col-lg-6 col-md-6 col-sm-12 mt-5'>
-                    <div className="card shadow-lg p-3 mb-5 bg-body rounded border border-5" >
+                    <div className="card " >
                         <div className=" g-0">
 
                             <div className=" align-items-center">
@@ -100,7 +98,7 @@ function Welcome() {
                                         </div>
 
                                         <div className="pt-1 mb-4">
-                                            <button className="btn btn-outline-success" onClick={connectHandler} >Change Wallet</button>
+                                            <button className="btn btn-outline-success" >Change Wallet</button>
                                         </div>
                                         <p >Any Error :: <span className='text-danger'>{errorMessage}</span></p>
                                     </form>

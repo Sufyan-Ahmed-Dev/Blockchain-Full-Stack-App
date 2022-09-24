@@ -1,6 +1,28 @@
+import { ethers } from 'ethers';
 import React from 'react'
+import ContractABI from "./Contract/contractABI.json"
+
 
 function Button() {
+
+      // const [CheckSale , setCheckSale] = useState();
+      // const ethPrivkey = "935a0ebd10c4babfd1cb46ffaf8d620d179db57e81a339cd09f9483e99c574ab"
+
+      // const [checkPublicSales , setcheckPublicSales] = useState();
+       const data = "0xf92c8480a88434Ac017b775970781b3073eeAF8e";   
+       const providers = new ethers.providers.Web3Provider(window.ethereum);
+       const Active = new ethers.Contract(data , ContractABI , providers)
+
+      const CheckSales = async()=>{
+        const Sales = await Active.CheckPublicsale();
+        console.log("Public Sales Are: ",Sales)
+      // console.log(CheckSale)
+}
+
+     const CheckOwner = async()=>{
+       const Owner = await Active.owner();
+       console.log("Owner of the Contract",Owner)
+}
   return (
       <>
       <div className='container'>
@@ -19,7 +41,8 @@ function Button() {
             <button className="btn btn-outline-success" type="button" >DactivePsale</button>
       </div>
       <div className="pt-1 col">
-            <button className="btn btn-outline-success" type="button" >CheckPsales</button>
+            <button className="btn btn-outline-success" type="button" onClick={CheckSales}>CheckPsales</button>
+            {/* <p className='text-dark'> Value :: {CheckSale}</p> */}
       </div>
       <div className="pt-1 col">
             <button className="btn btn-outline-success" type="button" >Pause</button>
@@ -49,7 +72,8 @@ function Button() {
       </div>
 
       <div className="pt-1 col">
-            <button className="btn btn-outline-success" type="button" >Owner</button>
+            <button className="btn btn-outline-success" type="button" onClick={CheckOwner} >Owner</button>
+  
       </div>
 
       <div className="pt-1 col" >
