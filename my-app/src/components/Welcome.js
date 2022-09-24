@@ -102,7 +102,7 @@ function Welcome() {
                                         <div className="pt-1 mb-4">
                                             <button className="btn btn-outline-success" onClick={connectHandler} >Change Wallet</button>
                                         </div>
-                                        <p>Any Error :: {errorMessage}</p>
+                                        <p >Any Error :: <span className='text-danger'>{errorMessage}</span></p>
                                     </form>
 
                                 </div>
