@@ -63,7 +63,7 @@ async function ConnectWallet (){
 
                     </div>
                     <div className='col-lg-6 col-md-6 col-sm-12 mt-5'>
-                    <div className="card" >
+                    <div className="card shadow-lg p-3 mb-5 bg-body rounded border border-5" >
                         <div className=" g-0">
 
                             <div className=" align-items-center">

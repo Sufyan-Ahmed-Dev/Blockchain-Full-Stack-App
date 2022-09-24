@@ -15,7 +15,7 @@ function Transiction() {
 
           <div className="row" data-aos="zoom-in" data-aos-delay="100">
 
-            <div className="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-lg-0">
+            <div className="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-lg-0 ">
               <div className="course-item">
                 {/* <img src="assets/img/course-3.jpg" className="img-fluid" alt="..."/> */}
                 <div className="course-content">

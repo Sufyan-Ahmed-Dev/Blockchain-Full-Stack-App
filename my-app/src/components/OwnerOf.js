@@ -6,7 +6,7 @@ function OwnerOf() {
     <div className="container py-5 ">
     <div className="row d-flex justify-content-center align-items-center ">
         {/* <div className="col "> */}
-        <div className="card" >
+        <div className="card shadow-lg p-3 mb-5 bg-body rounded border border-5" >
             <div className=" g-0">
 
                 <div className=" align-items-center">

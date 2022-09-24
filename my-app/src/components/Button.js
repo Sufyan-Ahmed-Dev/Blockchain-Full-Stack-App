@@ -10,7 +10,7 @@ function Button() {
             <p>All Buttons</p>
           </div>
       
-      <div className="row justify-content-center  g-4">
+      <div className="row justify-content-center  g-4 ">
   
       <div className="pt-1 col">
             <button className="btn btn-outline-success" type="button" >ActivePsales</button>
