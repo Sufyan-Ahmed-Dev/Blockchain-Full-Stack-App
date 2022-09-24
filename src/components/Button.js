@@ -9,7 +9,7 @@ function Button() {
       // const ethPrivkey = "935a0ebd10c4babfd1cb46ffaf8d620d179db57e81a339cd09f9483e99c574ab"
 
       // const [checkPublicSales , setcheckPublicSales] = useState();
-       const data = "0xf92c8480a88434Ac017b775970781b3073eeAF8e";   
+       const data = "0x5CFFa40F9079b9a05Ad0347D215A005B26ABE25e";   
        const providers = new ethers.providers.Web3Provider(window.ethereum);
        const Active = new ethers.Contract(data , ContractABI , providers)
 
