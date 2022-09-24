@@ -65,7 +65,7 @@ function Welcome() {
                             <div className="container position-relative">
                                 <h2>Connect Wallet Transfer Securily</h2>
                                 <h4>Decenterilize app connect wallet and minting NFT's For OpenSea</h4>
-                                <a href="courses.html" className="btn btn-outline-success mt-3" onClick={connectHandler} >Connect Wallet</a>
+                                <button className="btn btn-outline-success mt-3" onClick={connectHandler} >Connect Wallet</button>
                             </div>
                         </section>
                         {/* <!-- End Hero --> */}
@@ -100,7 +100,7 @@ function Welcome() {
                                         </div>
 
                                         <div className="pt-1 mb-4">
-                                            <button className="btn btn-outline-success" type="button"  >Change Wallet</button>
+                                            <button className="btn btn-outline-success" onClick={connectHandler} >Change Wallet</button>
                                         </div>
                                         <p>Any Error :: {errorMessage}</p>
                                     </form>
