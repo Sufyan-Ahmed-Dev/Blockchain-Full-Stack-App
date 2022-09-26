@@ -11,17 +11,38 @@ function Button() {
       // const [checkPublicSales , setcheckPublicSales] = useState();
        const data = "0x5CFFa40F9079b9a05Ad0347D215A005B26ABE25e";   
        const providers = new ethers.providers.Web3Provider(window.ethereum);
-       const Active = new ethers.Contract(data , ContractABI , providers)
+       const signer =  providers.getSigner();
+       const contract = new ethers.Contract(data , ContractABI , signer);
 
       const CheckSales = async()=>{
-        const Sales = await Active.CheckPublicsale();
+        const Sales = await contract.CheckPublicsale();
         console.log("Public Sales Are: ",Sales)
       // console.log(CheckSale)
 }
 
      const CheckOwner = async()=>{
-       const Owner = await Active.owner();
+       const Owner = await contract.owner();
        console.log("Owner of the Contract",Owner)
+}
+async function DeActivePubSales(){
+      if(typeof window.ethereum  !== "undefined"){        
+            const sendTX = await contract.unActicePublic();
+            await sendTX.wait();
+            console.log(sendTX);
+      }
+      else{
+            return("failed")
+      }
+}
+async function ActivePubSales(){
+      if(typeof window.ethereum  !== "undefined"){        
+            const sendTX = await contract.acticePublic();
+            await sendTX.wait();
+            console.log(sendTX);
+      }
+      else{
+            return("failed")
+      }
 }
   return (
       <>
@@ -35,10 +56,10 @@ function Button() {
       <div className="row justify-content-center  g-4 ">
   
       <div className="pt-1 col">
-            <button className="btn btn-outline-success" type="button" >ActivePsales</button>
+            <button className="btn btn-outline-success" type="button" onClick={ActivePubSales} >ActivePsales</button>
       </div>
       <div className="pt-1 col">
-            <button className="btn btn-outline-success" type="button" >DactivePsale</button>
+            <button className="btn btn-outline-success" type="button"onClick={DeActivePubSales} >DactivePsale</button>
       </div>
       <div className="pt-1 col">
             <button className="btn btn-outline-success" type="button" onClick={CheckSales}>CheckPsales</button>
