@@ -100,7 +100,7 @@ function Button() {
                         console.log(sendTX);
                         setdeActivePub("DeActivated");
                   } catch {
-                        setdeActivePub("failed");
+                        alert("Just Owner can call")
                   }
             }
 
@@ -116,7 +116,7 @@ function Button() {
                         console.log(sendTX);
                         setActivePub("Activated");
                   } catch {
-                        setActivePub("failed");
+                        alert("Just Owner can call")
                   }
             }
 
@@ -133,7 +133,7 @@ function Button() {
                         console.log(sendTX);
                         setcheckPaused("Pause");
                   } catch {
-                        setcheckPaused("failed");
+                        alert("Just Owner can call")
                   }
             }
 
