@@ -9,7 +9,7 @@ function Button() {
       const [CheckSale, setCheckSale] = useState("");
       const [checkPaused, setcheckPaused] = useState("");
       const [unPaused, setunPaused] = useState("");
-      const [BaseURI , setBaseURI] = useState("");
+      // const [BaseURI , setBaseURI] = useState("");
       const [tokenName , settokenName] = useState("");
       const [tokensyamble , settokensyamble] = useState("");
       const [chekowner , setchekowner] = useState("");
@@ -50,11 +50,11 @@ function Button() {
             // console.log("Owner of the Contract", Owner)
       }
 
-      const BaseUrl = async () => {
-            const baseUrl = await contract.BaseUrl();
-            setBaseURI(baseUrl)
-            // console.log("Owner of the Contract", baseUrl)
-      }
+      // const BaseUrl = async () => {
+      //       const baseUrl = await contract.BaseUrl();
+      //       setBaseURI(baseUrl)
+      //       // console.log("Owner of the Contract", baseUrl)
+      // }
       const TokenNAme = async () => {
             const name = await contract.name();
             settokenName(name)
@@ -200,15 +200,14 @@ function Button() {
 
                               </div>
 
-                              <div className="pt-1 col">
+                              {/* <div className="pt-1 col">
                                     <button className="btn btn-outline-success" type="button" >CheckPause</button>
-                              </div>
+                              </div> */}
 
-                              <div className="pt-1 col">
+                              {/* <div className="pt-1 col">
                                     <button className="btn btn-outline-success" type="button" onClick={BaseUrl} >BaseURI</button>
-                                    {/* <a href={BaseURI}></a> */}
                                  
-                              </div>
+                              </div> */}
 
                               <div className="pt-1 col">
                                     <button className="btn btn-outline-success" type="button" onClick={TokenNAme} >Tname</button>
