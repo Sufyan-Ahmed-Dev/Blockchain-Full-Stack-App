@@ -4,8 +4,24 @@ import ContractABI from "./Contract/contractABI.json"
 
 
 function Button() {
+      const [ActivePub, setActivePub] = useState("");
+      const [deActivePub, setdeActivePub] = useState("");
+      const [CheckSale, setCheckSale] = useState("");
+      const [checkPaused, setcheckPaused] = useState("");
+      const [unPaused, setunPaused] = useState("");
+      const [BaseURI , setBaseURI] = useState("");
+      const [tokenName , settokenName] = useState("");
+      const [tokensyamble , settokensyamble] = useState("");
+      const [chekowner , setchekowner] = useState("");
+      const [maxlimit , setmaxlimit] = useState('');
+      const [adminlimit , setadminlimit] = useState('');
+      const [whiteuserlimit , setwhiteuserlimit] = useState('');
+      const [publiclimit , setpubliclimit] = useState('');
+      
+      
 
-      const [CheckSale, setCheckSale] = useState('');
+
+ 
       // useEffect(() => {
       //       if (window.ethereum) {
 
@@ -22,7 +38,7 @@ function Button() {
 
       const CheckSales = async () => {
             const Sales = await contract.CheckPublicsale();
-            console.log("Public Sales Are: ", Sales)
+            // console.log("Public Sales Are: ", Sales)
             setCheckSale(Sales);
             // console.log(CheckSale);
 
@@ -30,16 +46,66 @@ function Button() {
 
       const CheckOwner = async () => {
             const Owner = await contract.owner();
-            console.log("Owner of the Contract", Owner)
+            setchekowner(Owner)
+            // console.log("Owner of the Contract", Owner)
       }
+
+      const BaseUrl = async () => {
+            const baseUrl = await contract.BaseUrl();
+            setBaseURI(baseUrl)
+            // console.log("Owner of the Contract", baseUrl)
+      }
+      const TokenNAme = async () => {
+            const name = await contract.name();
+            settokenName(name)
+            // console.log("Owner of the Contract", baseUrl)
+      }
+      const TokenSyamble = async () => {
+            const syamble = await contract.symbol();
+            settokensyamble(syamble)
+            // console.log("Owner of the Contract", baseUrl)
+      }
+      const MaxLimit = async () => {
+            const max_limit = await contract.MAX_SUPPLY();
+            setmaxlimit( max_limit)
+            // console.log("Owner of the Contract", baseUrl)
+      }
+
+      const AdminLimit = async () => {
+            const admin_limit = await contract.WhiteAdmainMint();
+            setadminlimit( admin_limit)
+            // console.log("Owner of the Contract", baseUrl)
+      }
+
+      
+      const WhiteUserLimit = async () => {
+            const whiteuser_limit = await contract.whiteUserLimit();
+            setwhiteuserlimit(whiteuser_limit )
+            // console.log("Owner of the Contract", baseUrl)
+      }
+
+      const PublicLimit = async () => {
+            const public_limit = await contract.publicLimit();
+            setpubliclimit(public_limit )
+            // console.log("Owner of the Contract", baseUrl)
+      }
+
+
+     
       async function DeActivePubSales() {
             if (typeof window.ethereum !== "undefined") {
-                  const sendTX = await contract.unActicePublic();
-                  await sendTX.wait();
-                  console.log(sendTX);
+                  try {
+                        const sendTX = await contract.unActicePublic();
+                        await sendTX.wait();
+                        console.log(sendTX);
+                        setdeActivePub("DeActivated");
+                  } catch {
+                        setdeActivePub("failed");
+                  }
             }
+
             else {
-                  return ("failed")
+                  return ("Account Error")
             }
       }
       async function ActivePubSales() {
@@ -48,8 +114,9 @@ function Button() {
                         const sendTX = await contract.acticePublic();
                         await sendTX.wait();
                         console.log(sendTX);
+                        setActivePub("Activated");
                   } catch {
-
+                        setActivePub("failed");
                   }
             }
 
@@ -58,6 +125,40 @@ function Button() {
             }
       }
 
+      async function Pause() {
+            if (typeof window.ethereum !== "undefined") {
+                  try {
+                        const sendTX = await contract.pause();
+                        await sendTX.wait();
+                        console.log(sendTX);
+                        setcheckPaused("Pause");
+                  } catch {
+                        setcheckPaused("failed");
+                  }
+            }
+
+            else {
+                  return ("Error")
+            }
+      }
+
+
+      async function UnPause() {
+            if (typeof window.ethereum !== "undefined") {
+                  try {
+                        const sendTX = await contract.unpause();
+                        await sendTX.wait();
+                        console.log(sendTX);
+                        setunPaused("UnPause");
+                  } catch {
+                        setunPaused("failed");
+                  }
+            }
+
+            else {
+                  return ("Error")
+            }
+      }
 
       // const chainChanged = () => {
       //       setCheckSale(undefined);
@@ -78,19 +179,25 @@ function Button() {
 
                               <div className="pt-1 col">
                                     <button className="btn btn-outline-success" type="button" onClick={ActivePubSales} >ActivePsales</button>
+                                     <p className='text-warning'>{ActivePub.toString()}</p>
                               </div>
                               <div className="pt-1 col">
                                     <button className="btn btn-outline-success" type="button" onClick={DeActivePubSales} >DactivePsale</button>
+                                    <p className='text-warning'>{deActivePub.toString()}</p>
                               </div>
                               <div className="pt-1 col">
                                     <button className="btn btn-outline-success" type="button" onClick={CheckSales}>CheckPsales</button>
                                     <p className='text-warning'>{CheckSale.toString()}</p>
                               </div>
                               <div className="pt-1 col">
-                                    <button className="btn btn-outline-success" type="button" >Pause</button>
+                                    <button className="btn btn-outline-success" type="button" onClick={Pause}>Pause</button>
+                                    <p className='text-warning'>{checkPaused.toString()}</p>
+                                    
                               </div>
                               <div className="pt-1 col">
-                                    <button className="btn btn-outline-success" type="button" >UnPause</button>
+                                    <button className="btn btn-outline-success" type="button" onClick={UnPause}>UnPause</button>
+                                    <p className='text-warning'>{unPaused.toString()}</p>
+
                               </div>
 
                               <div className="pt-1 col">
@@ -98,39 +205,47 @@ function Button() {
                               </div>
 
                               <div className="pt-1 col">
-                                    <button className="btn btn-outline-success" type="button" >BaseURI</button>
+                                    <button className="btn btn-outline-success" type="button" onClick={BaseUrl} >BaseURI</button>
+                                    {/* <a href={BaseURI}></a> */}
+                                 
                               </div>
 
                               <div className="pt-1 col">
-                                    <button className="btn btn-outline-success" type="button" >CheckWLsales</button>
+                                    <button className="btn btn-outline-success" type="button" onClick={TokenNAme} >Tname</button>
+                                    <p className='text-warning'>{tokenName.toString()}</p>
+                                    
                               </div>
 
                               <div className="pt-1 col">
-                                    <button className="btn btn-outline-success" type="button" >Tname</button>
-                              </div>
-
-                              <div className="pt-1 col">
-                                    <button className="btn btn-outline-success" type="button" >Tsymble</button>
+                                    <button className="btn btn-outline-success" type="button" onClick={TokenSyamble}>Tsymble</button>
+                                    <p className='text-warning'>{tokensyamble.toString()}</p>
                               </div>
 
                               <div className="pt-1 col">
                                     <button className="btn btn-outline-success" type="button" onClick={CheckOwner} >Owner</button>
+                                    <p className='text-warning'>{chekowner.toString()}</p>
 
                               </div>
 
                               <div className="pt-1 col" >
-                                    <button className="btn btn-outline-success" type="button" >MaxLimit</button>
+                                    <button className="btn btn-outline-success" type="button" onClick={MaxLimit} >MaxLimit</button>
+                                    <p className='text-warning'>{maxlimit.toString()}</p>
+
                               </div>
 
                               <div className="pt-1 col">
-                                    <button className="btn btn-outline-success" type="button" >AdminLimit</button>
+                                    <button className="btn btn-outline-success" type="button" onClick={AdminLimit}>AdminLimit</button>
+                                    <p className='text-warning'>{adminlimit.toString()}</p>
                               </div>
 
                               <div className="pt-1 col">
-                                    <button className="btn btn-outline-success" type="button" >WuserLimit</button>
+                                    <button className="btn btn-outline-success" type="button" onClick={WhiteUserLimit} >WuserLimit</button>
+                                    <p className='text-warning'>{whiteuserlimit.toString()}</p>
+                                    
                               </div>
                               <div className="pt-1 col">
-                                    <button className="btn btn-outline-success" type="button" >PublicLimit</button>
+                                    <button className="btn btn-outline-success" type="button" onClick={PublicLimit}>PublicLimit</button>
+                                    <p className='text-warning'>{publiclimit.toString()}</p>
                               </div>
                         </div>
                   </div>
