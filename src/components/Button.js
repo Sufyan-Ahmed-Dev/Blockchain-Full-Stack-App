@@ -1,6 +1,7 @@
-import { ethers } from 'ethers';
+
 import React, { useState,  } from 'react'
 import ContractABI from "./Contract/contractABI.json"
+import { ethers } from 'ethers';
 
 
 function Button() {
@@ -96,6 +97,7 @@ function Button() {
             if (typeof window.ethereum !== "undefined") {
                   try {
                         const sendTX = await contract.unActicePublic();
+                        setdeActivePub("wait...");
                         await sendTX.wait();
                         console.log(sendTX);
                         setdeActivePub("DeActivated");
@@ -112,6 +114,7 @@ function Button() {
             if (typeof window.ethereum !== "undefined") {
                   try {
                         const sendTX = await contract.acticePublic();
+                        setActivePub("wait...");
                         await sendTX.wait();
                         console.log(sendTX);
                         setActivePub("Activated");
@@ -129,6 +132,7 @@ function Button() {
             if (typeof window.ethereum !== "undefined") {
                   try {
                         const sendTX = await contract.pause();
+                        setcheckPaused("wait...");
                         await sendTX.wait();
                         console.log(sendTX);
                         setcheckPaused("Pause");
@@ -147,6 +151,7 @@ function Button() {
             if (typeof window.ethereum !== "undefined") {
                   try {
                         const sendTX = await contract.unpause();
+                        setunPaused("wait...");
                         await sendTX.wait();
                         console.log(sendTX);
                         setunPaused("UnPause");
