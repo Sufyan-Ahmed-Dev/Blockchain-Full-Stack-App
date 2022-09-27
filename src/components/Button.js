@@ -1,17 +1,17 @@
 import { ethers } from 'ethers';
-import React, { useState, useEffect } from 'react'
+import React, { useState,  } from 'react'
 import ContractABI from "./Contract/contractABI.json"
 
 
 function Button() {
 
-      const [CheckSale, setCheckSale] = useState(false);
-      useEffect(() => {
-            if (window.ethereum) {
+      const [CheckSale, setCheckSale] = useState('');
+      // useEffect(() => {
+      //       if (window.ethereum) {
 
-                  window.ethereum.on("chainChanged", chainChanged);
-            }
-      }, []);
+      //             window.ethereum.on("chainChanged", chainChanged);
+      //       }
+      // }, []);
       // const ethPrivkey = "935a0ebd10c4babfd1cb46ffaf8d620d179db57e81a339cd09f9483e99c574ab"
 
       // const [checkPublicSales , setcheckPublicSales] = useState();
@@ -24,7 +24,7 @@ function Button() {
             const Sales = await contract.CheckPublicsale();
             console.log("Public Sales Are: ", Sales)
             setCheckSale(Sales);
-            console.log(CheckSale);
+            // console.log(CheckSale);
 
       }
 
@@ -59,10 +59,10 @@ function Button() {
       }
 
 
-      const chainChanged = () => {
-            setCheckSale(false);
+      // const chainChanged = () => {
+      //       setCheckSale(undefined);
 
-      };
+      // };
 
 
       return (
@@ -84,7 +84,7 @@ function Button() {
                               </div>
                               <div className="pt-1 col">
                                     <button className="btn btn-outline-success" type="button" onClick={CheckSales}>CheckPsales</button>
-                                    <p className='text-dark'> Value :: {CheckSale}</p>
+                                    <p className='text-warning'>{CheckSale.toString()}</p>
                               </div>
                               <div className="pt-1 col">
                                     <button className="btn btn-outline-success" type="button" >Pause</button>
