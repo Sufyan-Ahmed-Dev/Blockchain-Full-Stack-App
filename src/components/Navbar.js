@@ -22,7 +22,7 @@ function Navbar() {
           </nav>
           {/* !-- .navbar --> */}
 
-          <a href="#courses.html" className="get-started-btn">ConnectWallet</a>
+          <a href="#courses.html" className="get-started-btn">Login</a>
 
         </div>
       </header>

@@ -97,9 +97,9 @@ function Welcome() {
                                         <p className="form-control "> Total Balnce : {balance}</p> 
                                         </div>
 
-                                        <div className="pt-1 mb-4">
+                                        {/* <div className="pt-1 mb-4">
                                             <button className="btn btn-outline-success" >Change Wallet</button>
-                                        </div>
+                                        </div> */}
                                         <p >Any Error :: <span className='text-danger'>{errorMessage}</span></p>
                                     </form>
 
