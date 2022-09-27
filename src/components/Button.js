@@ -151,7 +151,7 @@ function Button() {
                         console.log(sendTX);
                         setunPaused("UnPause");
                   } catch {
-                        setunPaused("failed");
+                        alert("Just Owner can call")
                   }
             }
 
