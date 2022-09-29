@@ -7,6 +7,7 @@ function PublicMinting() {
     const [tokenId, setTokenId] = useState('');
     const [hash, setHash] = useState('');
     const [NFTname, setNFTname] = useState('');
+    const [status , setStatus] = useState('');
 
 
 
@@ -27,7 +28,7 @@ function PublicMinting() {
         event.preventDefault()
 
         if(tokenId == '' || hash == '' || NFTname == ''){
-            alert("empty")
+            setStatus("Gives Proper Data")
         }
         else{
         var token = tokenId
@@ -35,11 +36,11 @@ function PublicMinting() {
         var nftName = NFTname
         }
 
-        console.log(token, Hash, nftName)
+        // console.log(token, Hash, nftName)
 
         async function publicMint(){
             if(typeof window.ethereum !== 'undefined'){
-
+                setStatus("wait")
                 try{
                 const data = "0xE47052f9aBbA29Bd7F061e1D910139827a0595CD";
                 const providers = new ethers.providers.Web3Provider(window.ethereum);
@@ -47,16 +48,18 @@ function PublicMinting() {
                 const contract = new ethers.Contract(data, ContractABI, signer);
                 const sendTX = await contract.publicMint(token, Hash, nftName)
                 await sendTX.wait()
-                console.log(sendTX)
+                // console.log(sendTX)
+                setStatus("Successfully Done")
 
                 }
-                catch (err){
-                    console.log(err)
+                catch {
+                    setStatus("Gives Proper Data")
 
                 }
             }
             else{
-                console.log("your")
+                // console.log("Not ")s
+                setStatus("Not Working")
 
             }
         }
@@ -101,6 +104,7 @@ function PublicMinting() {
 
                                         <div className="pt-1 mb-4">
                                             <button className="btn btn-outline-success" type="submit" >Mint NFT</button>
+                                            <p className='text-danger'>{status}</p>
                                             
                                         </div>
                                     </form>

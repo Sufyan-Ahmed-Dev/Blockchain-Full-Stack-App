@@ -1,10 +1,17 @@
 import React, {useState} from 'react'
+import ContractABI from "./Contract/contractABI.json"
+import { ethers } from 'ethers';
+import { setSelectionRange } from '@testing-library/user-event/dist/utils';
 
 
-function WhiteListUser({ addLog }) {
+function WhiteListUser() {
+
+
     const [tokenId, setTokenId] = useState('');
     const [hash, setHash] = useState('');
     const [NFTname, setNFTname] = useState('');
+    const [status , setStatus] = useState('')
+
 
 
     var tokenID = (event)=>{
@@ -21,16 +28,47 @@ function WhiteListUser({ addLog }) {
 
     var submit = (event) =>{
         event.preventDefault()
-        var signUplist = []
 
-        var signUpData= {
-            ID: tokenId,
-            Hash:hash,
-            NFTNAME: NFTname
+        if(tokenId == '' || hash == '' || NFTname == ''){
+            // alert("empty")
+        }
+        else{
+        var token = tokenId
+        var Hash = hash
+        var nftName = NFTname
         }
 
-        signUplist.push(signUpData)
-        console.log(signUplist)
+        // console.log(token, Hash, nftName)
+
+        async function WhiteListMint(){
+            if(typeof window.ethereum !== 'undefined'){
+                setStatus("wait")
+                try{
+                const data = "0xE47052f9aBbA29Bd7F061e1D910139827a0595CD";
+                const providers = new ethers.providers.Web3Provider(window.ethereum);
+                const signer = providers.getSigner();
+                const contract = new ethers.Contract(data, ContractABI, signer);
+                const sendTX = await contract.WhiteListMint(token, Hash, nftName)
+                await sendTX.wait()
+                // console.log(sendTX)
+                setStatus("Sucessfully Done")
+
+                }
+                catch{
+                    // console.log(err)
+                    setStatus("Gives Proper Data")
+
+
+                }
+            }
+            else{
+                // console.log("your")s
+                setStatus("not working")
+
+            }
+        }
+        WhiteListMint()
+
     }
 
     return (
@@ -72,6 +110,7 @@ function WhiteListUser({ addLog }) {
 
                                         <div className="pt-1 mb-4">
                                             <button className="btn btn-outline-success" type="submit"  >Mint NFT</button>
+                                            <p className='text-danger'>{status}</p>
                                         </div>
                                     </form>
 
