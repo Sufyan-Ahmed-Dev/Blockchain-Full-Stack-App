@@ -168,12 +168,12 @@ function Button() {
                         console.log(sendTX);
                         setdeActivePub("DeActivated");
                   } catch {
-                        alert("Just Owner can call")
+                        setdeActivePub("Just Owner can call");
                   }
             }
 
             else {
-                  return ("Account Error")
+                  setdeActivePub("Something went Wrong");
             }
       }
       async function ActivePubSales() {
@@ -188,12 +188,12 @@ function Button() {
                         console.log(sendTX);
                         setActivePub("Activated");
                   } catch {
-                        alert("Just Owner can call")
+                        setActivePub("Just Owner can call");
                   }
             }
 
             else {
-                  return ("failed")
+                  setActivePub("Something Went Wrong");
             }
       }
 
@@ -209,12 +209,12 @@ function Button() {
                         console.log(sendTX);
                         setcheckPaused("Pause");
                   } catch {
-                        alert("Just Owner can call")
+                        setcheckPaused("Just Owner can call");
                   }
             }
 
             else {
-                  return ("Error")
+                  setcheckPaused("Something went Wrong");
             }
       }
 
@@ -231,12 +231,12 @@ function Button() {
                         console.log(sendTX);
                         setunPaused("UnPause");
                   } catch {
-                        alert("Just Owner can call")
+                        setunPaused("Just Owner can call");
                   }
             }
 
             else {
-                  return ("Error")
+                  setunPaused("Something went Wrong");
             }
       }
 
