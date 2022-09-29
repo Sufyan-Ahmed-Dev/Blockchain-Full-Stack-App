@@ -63,7 +63,7 @@ function WhiteListUser() {
             }
             else{
                 // console.log("your")s
-                setStatus("not working")
+                setStatus("Not working")
 
             }
         }
