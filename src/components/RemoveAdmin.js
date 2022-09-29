@@ -16,7 +16,7 @@ function RemoveAdmin() {
 
                                         <div className="d-flex align-items-center mb-3 pb-1">
 
-                                            <span className="h4 fw-bold mb-0">RemoveUser</span>
+                                            <span className="h4 fw-bold mb-0">RemoveAdmin</span>
                                         </div>
 
                                         {/* <h5 className="fw-normal mb-3 pb-3">Sign into your account</h5> */}

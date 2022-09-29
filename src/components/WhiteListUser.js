@@ -30,7 +30,7 @@ function WhiteListUser() {
         event.preventDefault()
 
         if(tokenId == '' || hash == '' || NFTname == ''){
-            // alert("empty")
+            setStatus("Gives Proper Data")
         }
         else{
         var token = tokenId
@@ -38,7 +38,6 @@ function WhiteListUser() {
         var nftName = NFTname
         }
 
-        // console.log(token, Hash, nftName)
 
         async function WhiteListMint(){
             if(typeof window.ethereum !== 'undefined'){
@@ -50,30 +49,22 @@ function WhiteListUser() {
                 const contract = new ethers.Contract(data, ContractABI, signer);
                 const sendTX = await contract.WhiteListMint(token, Hash, nftName)
                 await sendTX.wait()
-                // console.log(sendTX)
                 setStatus("Sucessfully Done")
 
                 }
                 catch{
-                    // console.log(err)
                     setStatus("Gives Proper Data")
-
 
                 }
             }
             else{
-                // console.log("your")s
                 setStatus("Not working")
-
             }
         }
         WhiteListMint()
-
     }
-
     return (
         <>
-
             <div className="container py-5 ">
                 <div className="row d-flex justify-content-center align-items-center ">
                     {/* <div className="col "> */}

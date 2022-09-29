@@ -3,13 +3,12 @@ import ContractABI from './Contract/contractABI.json'
 import { ethers } from 'ethers';
 
 function WhiteListAdminMInting() {
-    
+
 
     const [tokenId, setTokenId] = useState('');
     const [hash, setHash] = useState('');
     const [NFTname, setNFTname] = useState('');
-    const [status , setStatus] = useState ('')
-
+    const [status , setStatus] = useState('')
 
 
 
@@ -29,7 +28,7 @@ function WhiteListAdminMInting() {
         event.preventDefault()
 
         if(tokenId == '' || hash == '' || NFTname == ''){
-            // alert("empty")
+            setStatus("Gives Proper Data")
         }
         else{
         var token = tokenId
@@ -37,36 +36,30 @@ function WhiteListAdminMInting() {
         var nftName = NFTname
         }
 
-        // console.log(token, Hash, nftName)
 
         async function AdminMint(){
             if(typeof window.ethereum !== 'undefined'){
                 setStatus("wait")
-
                 try{
                 const data = "0xE47052f9aBbA29Bd7F061e1D910139827a0595CD";
                 const providers = new ethers.providers.Web3Provider(window.ethereum);
                 const signer = providers.getSigner();
                 const contract = new ethers.Contract(data, ContractABI, signer);
                 const sendTX = await contract.AdminMint(token, Hash, nftName)
-                console.log(data.message)
                 await sendTX.wait()
-                // console.log(sendTX)
-                setStatus("Successfully Done")
-                
+                setStatus("Sucessfully Done")
+
                 }
                 catch{
                     setStatus("Gives Proper Data")
+
                 }
             }
             else{
-                console.log("not working ")
-                setStatus("Not Working")
-
+                setStatus("Not working")
             }
         }
         AdminMint()
-
     }
 
     return (

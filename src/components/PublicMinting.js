@@ -36,7 +36,6 @@ function PublicMinting() {
         var nftName = NFTname
         }
 
-        // console.log(token, Hash, nftName)
 
         async function publicMint(){
             if(typeof window.ethereum !== 'undefined'){
@@ -48,7 +47,6 @@ function PublicMinting() {
                 const contract = new ethers.Contract(data, ContractABI, signer);
                 const sendTX = await contract.publicMint(token, Hash, nftName)
                 await sendTX.wait()
-                // console.log(sendTX)
                 setStatus("Successfully Done")
 
                 }
@@ -58,7 +56,6 @@ function PublicMinting() {
                 }
             }
             else{
-                // console.log("Not ")s
                 setStatus("Not Working")
 
             }
