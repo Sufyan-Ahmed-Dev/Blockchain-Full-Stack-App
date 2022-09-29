@@ -32,7 +32,7 @@ function Button() {
       // const ethPrivkey = "935a0ebd10c4babfd1cb46ffaf8d620d179db57e81a339cd09f9483e99c574ab"
 
       // const [checkPublicSales , setcheckPublicSales] = useState();
-      const data = "0x5CFFa40F9079b9a05Ad0347D215A005B26ABE25e";
+      const data = "0xE47052f9aBbA29Bd7F061e1D910139827a0595CD";
       const providers = new ethers.providers.Web3Provider(window.ethereum);
       const signer = providers.getSigner();
       const contract = new ethers.Contract(data, ContractABI, signer);

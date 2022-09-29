@@ -9,6 +9,8 @@ function PublicMinting() {
     const [NFTname, setNFTname] = useState('');
 
 
+
+
     var tokenID = (event)=>{
         setTokenId(event.target.value)
       }
@@ -37,21 +39,25 @@ function PublicMinting() {
 
         async function publicMint(){
             if(typeof window.ethereum !== 'undefined'){
+
                 try{
-                const data = "0x5CFFa40F9079b9a05Ad0347D215A005B26ABE25e";
+                const data = "0xE47052f9aBbA29Bd7F061e1D910139827a0595CD";
                 const providers = new ethers.providers.Web3Provider(window.ethereum);
                 const signer = providers.getSigner();
                 const contract = new ethers.Contract(data, ContractABI, signer);
                 const sendTX = await contract.publicMint(token, Hash, nftName)
                 await sendTX.wait()
                 console.log(sendTX)
+
                 }
                 catch (err){
                     console.log(err)
+
                 }
             }
             else{
                 console.log("your")
+
             }
         }
         publicMint()
@@ -95,6 +101,7 @@ function PublicMinting() {
 
                                         <div className="pt-1 mb-4">
                                             <button className="btn btn-outline-success" type="submit" >Mint NFT</button>
+                                            
                                         </div>
                                     </form>
 
