@@ -1,4 +1,6 @@
+import { ethers } from 'ethers';
 import React, {useState} from 'react'
+import ContractABI from './Contract/contractABI.json'
 
 function PublicMinting() {
 
@@ -21,16 +23,39 @@ function PublicMinting() {
 
     var submit = (event) =>{
         event.preventDefault()
-        var signUplist = []
 
-        var signUpData= {
-            ID: tokenId,
-            Hash:hash,
-            NFTNAME: NFTname
+        if(tokenId == '' || hash == '' || NFTname == ''){
+            alert("empty")
+        }
+        else{
+        var token = tokenId
+        var Hash = hash
+        var nftName = NFTname
         }
 
-        signUplist.push(signUpData)
-        console.log(signUplist)
+        console.log(token, Hash, nftName)
+
+        async function publicMint(){
+            if(typeof window.ethereum !== 'undefined'){
+                try{
+                const data = "0x5CFFa40F9079b9a05Ad0347D215A005B26ABE25e";
+                const providers = new ethers.providers.Web3Provider(window.ethereum);
+                const signer = providers.getSigner();
+                const contract = new ethers.Contract(data, ContractABI, signer);
+                const sendTX = await contract.publicMint(token, Hash, nftName)
+                await sendTX.wait()
+                console.log(sendTX)
+                }
+                catch (err){
+                    console.log(err)
+                }
+            }
+            else{
+                console.log("your")
+            }
+        }
+        publicMint()
+
     }
     return (
         <>
