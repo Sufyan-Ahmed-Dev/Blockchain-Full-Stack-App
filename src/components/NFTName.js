@@ -42,12 +42,12 @@ function NFTName() {
 
                 }
                 catch (err) {
-                    // if(name === ''){
-                    //     setStatus("Gives Proper Data")
-                    // }else{
-                        console.log(err.errorArgs)
-                        // setStatus(err.error.message);
-                    // }
+                    if(name === ''){
+                        setStatus("Gives Proper Data")
+                    }else{
+                        // console.log(err.errorArgs)
+                        setStatus("Invalid token ID");
+                    }
                    
 
                 }
