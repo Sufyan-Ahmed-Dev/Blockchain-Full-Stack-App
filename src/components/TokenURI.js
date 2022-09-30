@@ -11,6 +11,7 @@ function TokenURI() {
 
 
 
+
     var Uri = (event) => {
         setURi(event.target.value)
     }
@@ -36,9 +37,9 @@ function TokenURI() {
                     const signer = providers.getSigner();
                     const contract = new ethers.Contract(data, ContractABI, signer);
                     const sendTX = await contract.tokenURI(uri)
-                    await sendTX.wait()
+                    // await sendTX.wait()
                     console.log(sendTX)
-                    setStatus("Successfully Done")
+                    setStatus("Sucessfully done");
 
                 }
                 catch (err) {

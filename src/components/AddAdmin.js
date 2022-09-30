@@ -38,7 +38,7 @@ function AddAdmin() {
                     const sendTX = await contract.addWhiteListadmin(ADDR)
                     await sendTX.wait()
                     console.log(sendTX)
-                    setStatus("Successfully Done")
+                    setStatus("Succesfully Done")
 
                 }
                 catch (err) {
