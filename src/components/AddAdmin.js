@@ -85,7 +85,7 @@ function AddAdmin() {
 
                                         <div className="pt-1 mb-4">
                                             <button className="btn btn-outline-success" type="submit" >Add Admin</button>
-                                            <p className='text-danger'>{status}</p>
+                                            <p className='text-danger mt-1'>{status}</p>
                                         </div>
                                     </form>
 

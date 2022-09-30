@@ -1,6 +1,61 @@
-import React from 'react'
+import React , {useState}from 'react'
+import ContractABI from './Contract/contractABI.json'
+import { ethers } from 'ethers';
+
 
 function NFTName() {
+    const [name, setname] = useState('');
+    const [status, setStatus] = useState('');
+
+
+
+
+    var Name = (event) => {
+        setname(event.target.value)
+    }
+
+
+    var submit = (event) => {
+        event.preventDefault()
+
+        if (name === '') {
+            setStatus("Gives Proper Data")
+        }
+        else {
+            var Name = name
+        }
+
+
+        async function ownerOf() {
+            if (typeof window.ethereum !== 'undefined') {
+                setStatus("wait")
+                try {
+                    const data = "0xE3605683A1fcbb9dbe9D9823B3935C1802313534";
+                    const providers = new ethers.providers.Web3Provider(window.ethereum);
+                    const signer = providers.getSigner();
+                    const contract = new ethers.Contract(data, ContractABI, signer);
+                    const sendTX = await contract.NftNames(Name)
+                    // await sendTX.wait()
+                    const check = sendTX.toString()
+                    console.log(check)
+                    setStatus(check)
+
+                }
+                catch (err) {
+                    console.log(err)
+                    setStatus("Gives Proper Data")
+
+                }
+            }
+            else {
+                setStatus("Not Working")
+
+            }
+        }
+        ownerOf()
+
+
+    }
     return (
         <>
             <div className="container py-5 ">
@@ -12,7 +67,7 @@ function NFTName() {
                             <div className=" align-items-center">
                                 <div className="card-body p-lg-3 p-4 text-black">
 
-                                    <form>
+                                    <form  onSubmit={submit}>
 
                                         <div className="d-flex align-items-center mb-3 pb-1">
 
@@ -22,14 +77,15 @@ function NFTName() {
                                         {/* <h5 className="fw-normal mb-3 pb-3">Sign into your account</h5> */}
 
                                         <div className="form-outline mb-3">
-                                            <input type="text" id="form2Example17" className="form-control" placeholder='Enter token ID' />
+                                            <input name='name' value={name} onChange={Name}   type="text" id="form2Example17" className="form-control" placeholder='Enter token ID' />
                                             {/* <label className="form-label" Htmlfor="form2Example17">Account Address</label> */}
                                         </div>
 
 
 
                                         <div className="pt-1 mb-4">
-                                            <button className="btn btn-outline-success" type="button" >Check</button>
+                                            <button className="btn btn-outline-success" type="submit" >Check</button>
+                                            <p className='text-danger mt-1'>{status}</p>
                                         </div>
                                     </form>
 

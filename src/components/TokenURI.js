@@ -38,8 +38,9 @@ function TokenURI() {
                     const contract = new ethers.Contract(data, ContractABI, signer);
                     const sendTX = await contract.tokenURI(uri)
                     // await sendTX.wait()
-                    console.log(sendTX)
-                    setStatus("Sucessfully done");
+                    const check = sendTX.toString() 
+                    console.log(check)
+                    setStatus(check);
 
                 }
                 catch (err) {
@@ -88,7 +89,7 @@ function TokenURI() {
 
                                         <div className="pt-1 mb-4">
                                             <button className="btn btn-outline-success" type="submit" >Check URI</button>
-                                            <p className='text-danger'>{status}</p>
+                                            <p className='text-danger mt-1'>{status}</p>
                                         </div>
                                     </form>
 

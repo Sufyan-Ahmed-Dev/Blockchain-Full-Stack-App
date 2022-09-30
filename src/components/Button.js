@@ -259,24 +259,24 @@ function Button() {
 
                               <div className="pt-1 col">
                                     <button className="btn btn-outline-success" type="button" onClick={ActivePubSales} >ActivePsales</button>
-                                    <p className='text-warning'>{ActivePub.toString()}</p>
+                                    <p className='text-warning mt-1'>{ActivePub.toString()}</p>
                               </div>
                               <div className="pt-1 col">
                                     <button className="btn btn-outline-success" type="button" onClick={DeActivePubSales} >DactivePsale</button>
-                                    <p className='text-warning'>{deActivePub.toString()}</p>
+                                    <p className='text-warning mt-1'>{deActivePub.toString()}</p>
                               </div>
                               <div className="pt-1 col">
                                     <button className="btn btn-outline-success" type="button" onClick={CheckSales}>CheckPsales</button>
-                                    <p className='text-warning'>{CheckSale.toString()}</p>
+                                    <p className='text-warning mt-1'>{CheckSale.toString()}</p>
                               </div>
                               <div className="pt-1 col">
                                     <button className="btn btn-outline-success" type="button" onClick={Pause}>Pause</button>
-                                    <p className='text-warning'>{checkPaused.toString()}</p>
+                                    <p className='text-warning mt-1'>{checkPaused.toString()}</p>
 
                               </div>
                               <div className="pt-1 col">
                                     <button className="btn btn-outline-success" type="button" onClick={UnPause}>UnPause</button>
-                                    <p className='text-warning'>{unPaused.toString()}</p>
+                                    <p className='text-warning mt-1'>{unPaused.toString()}</p>
 
                               </div>
 
@@ -291,40 +291,40 @@ function Button() {
 
                               <div className="pt-1 col">
                                     <button className="btn btn-outline-success" type="button" onClick={TokenNAme} >Tname</button>
-                                    <p className='text-warning'>{tokenName.toString()}</p>
+                                    <p className='text-warning mt-1'>{tokenName.toString()}</p>
 
                               </div>
 
                               <div className="pt-1 col">
                                     <button className="btn btn-outline-success" type="button" onClick={TokenSyamble}>Tsymble</button>
-                                    <p className='text-warning'>{tokensyamble.toString()}</p>
+                                    <p className='text-warning mt-1'>{tokensyamble.toString()}</p>
                               </div>
 
                               <div className="pt-1 col">
                                     <button className="btn btn-outline-success" type="button" onClick={CheckOwner} >Owner</button>
-                                    <p className='text-warning'>{chekowner.toString()}</p>
+                                    <p className='text-warning mt-1'>{chekowner.toString()}</p>
 
                               </div>
 
                               <div className="pt-1 col" >
                                     <button className="btn btn-outline-success" type="button" onClick={MaxLimit} >MaxLimit</button>
-                                    <p className='text-warning'>{maxlimit.toString()}</p>
+                                    <p className='text-warning mt-1'>{maxlimit.toString()}</p>
 
                               </div>
 
                               <div className="pt-1 col">
                                     <button className="btn btn-outline-success" type="button" onClick={AdminLimit}>AdminLimit</button>
-                                    <p className='text-warning'>{adminlimit.toString()}</p>
+                                    <p className='text-warning mt-1'>{adminlimit.toString()}</p>
                               </div>
 
                               <div className="pt-1 col">
                                     <button className="btn btn-outline-success" type="button" onClick={WhiteUserLimit} >WuserLimit</button>
-                                    <p className='text-warning'>{whiteuserlimit.toString()}</p>
+                                    <p className='text-warning mt-1'>{whiteuserlimit.toString()}</p>
 
                               </div>
                               <div className="pt-1 col">
                                     <button className="btn btn-outline-success" type="button" onClick={PublicLimit}>PublicLimit</button>
-                                    <p className='text-warning'>{publiclimit.toString()}</p>
+                                    <p className='text-warning mt-1'>{publiclimit.toString()}</p>
                               </div>
                         </div>
                   </div>
