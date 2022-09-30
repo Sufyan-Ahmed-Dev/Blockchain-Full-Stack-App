@@ -52,8 +52,16 @@ function PublicMinting() {
 
                 }
                 catch (err) {
-                    console.log(err)
-                    setStatus("Gives Proper Data")
+                    if(tokenId === '' || hash === '' || NFTname === ''){
+                        setStatus("Gives Proper Data")
+                     
+                    }else{
+                        console.log(err.error.message)
+                        setStatus(err.error.message)
+                  
+                    }
+
+              
 
                 }
             }

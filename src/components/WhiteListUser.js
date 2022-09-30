@@ -3,7 +3,6 @@ import ContractABI from "./Contract/contractABI.json"
 import { ethers } from 'ethers';
 
 
-
 function WhiteListUser() {
 
 
@@ -54,8 +53,15 @@ function WhiteListUser() {
 
                 }
                 catch (err) {
-                    console.log(err)
-                    setStatus("Gives Proper Data")
+                    if(tokenId === '' || hash === '' || NFTname === ''){
+                        setStatus("Gives Proper Data")
+                    }
+                    else{
+                         console.log(err)
+                         setStatus(err.message.message)
+
+                    }
+                   
 
                 }
             }

@@ -44,8 +44,15 @@ function TokenURI() {
 
                 }
                 catch (err) {
-                    console.log(err)
-                    setStatus("Gives Proper Data")
+                    if(URI === ''){
+                        setStatus("Gives Proper Data")   
+                    }
+                    else{
+                        console.log(err)
+                        setStatus(err.error.message)
+                    }
+                  
+                 
 
                 }
             }

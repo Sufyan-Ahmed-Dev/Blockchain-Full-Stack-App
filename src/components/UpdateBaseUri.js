@@ -42,8 +42,13 @@ function UpdateBaseUri() {
 
                 }
                 catch (err) {
-                    setStatus("Gives Proper Data")
-                    console.log(err)
+                    if(URI === ''){
+                        setStatus("Gives Proper Data")   
+                    }else{
+                        setStatus(err.error.message)
+                        console.log(err)
+                    }
+                   
 
                 }
             }

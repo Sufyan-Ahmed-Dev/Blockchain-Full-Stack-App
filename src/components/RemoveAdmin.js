@@ -42,8 +42,13 @@ function RemoveAdmin() {
 
                 }
                 catch (err) {
-                    console.log(err)
-                    setStatus("Gives Proper Data")
+                    if(addr === ''){
+                        setStatus("Gives Proper Data")
+                    }else{
+                        console.log(err)
+                        setStatus(err.error.message)
+                    }
+                  
 
                 }
             }

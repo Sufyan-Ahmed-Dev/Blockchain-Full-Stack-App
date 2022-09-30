@@ -167,8 +167,8 @@ function Button() {
                         await sendTX.wait();
                         console.log(sendTX);
                         setdeActivePub("DeActivated");
-                  } catch {
-                        setdeActivePub("Just Owner can call");
+                  } catch (err){
+                        setdeActivePub(err.error.message);
                   }
             }
 
@@ -187,8 +187,9 @@ function Button() {
                         await sendTX.wait();
                         console.log(sendTX);
                         setActivePub("Activated");
-                  } catch {
-                        setActivePub("Just Owner can call");
+                  } catch(err) {
+                        // console.log(err.error.message.key)
+                        setActivePub(err.error.message);
                   }
             }
 
@@ -208,8 +209,8 @@ function Button() {
                         await sendTX.wait();
                         console.log(sendTX);
                         setcheckPaused("Pause");
-                  } catch {
-                        setcheckPaused("Just Owner can call");
+                  } catch (err){
+                        setcheckPaused(err.error.message);
                   }
             }
 
@@ -230,8 +231,11 @@ function Button() {
                         await sendTX.wait();
                         console.log(sendTX);
                         setunPaused("UnPause");
-                  } catch {
-                        setunPaused("Just Owner can call");
+                  } catch (err){
+                  
+                        setunPaused("error");
+                        setunPaused(err.error.message);
+                       
                   }
             }
 

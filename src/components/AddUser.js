@@ -37,13 +37,21 @@ function AddUser() {
                     const contract = new ethers.Contract(data, ContractABI, signer);
                     const sendTX = await contract.addWhiteListUser(ADDR)
                     await sendTX.wait()
-                    console.log(sendTX)
+                    const check = sendTX.toString()
+                    console.log(check)
                     setStatus("Successfully Done")
 
                 }
                 catch (err) {
-                    console.log(err)
-                    setStatus("Gives Proper Data")
+                    if(addr === ''){
+                        setStatus("Gives Proper Data")
+                    }
+                    else{
+                        console.log(err)
+                        setStatus(err.error.message)
+
+                    }
+                   
 
                 }
             }

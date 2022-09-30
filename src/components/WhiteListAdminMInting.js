@@ -52,8 +52,13 @@ function WhiteListAdminMInting() {
 
                 }
                 catch (err) {
-                    console.log(err)
-                    setStatus("Gives Proper Data")
+                    if(tokenId === '' || hash === '' || NFTname === ''){
+                        setStatus("Gives Proper Data")
+                    }else{
+                        console.log(err)
+                        setStatus(err.error.message)
+                    }
+                 
 
                 }
             }

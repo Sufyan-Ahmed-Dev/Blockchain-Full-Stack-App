@@ -41,8 +41,13 @@ function CheckWhiteListUser() {
 
                 }
                 catch (err) {
-                    console.log(err)
-                    setStatus("Gives Proper Data")
+                    if(checkUser === ''){
+                        setStatus("Gives Proper Data")
+                    }else{
+                        console.log(err)
+                        setStatus(err.error.message);
+                    }
+                
 
                 }
             }

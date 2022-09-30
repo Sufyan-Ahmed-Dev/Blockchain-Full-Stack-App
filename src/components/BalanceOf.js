@@ -42,8 +42,14 @@ function BalanceOf() {
 
                 }
                 catch (err) {
-                    console.log(err)
-                    setStatus("Gives Proper Data")
+                    if(balance === ''){
+                        setStatus("Gives Proper Data")
+                    }
+                    else{
+                        console.log(err)
+                        setStatus(err.error.message)
+                    }
+                  
 
                 }
             }
