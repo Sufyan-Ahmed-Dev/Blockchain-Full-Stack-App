@@ -1,5 +1,5 @@
 import { ethers } from 'ethers';
-import React, {useState} from 'react'
+import React, { useState } from 'react'
 import ContractABI from './Contract/contractABI.json'
 
 function PublicMinting() {
@@ -7,55 +7,57 @@ function PublicMinting() {
     const [tokenId, setTokenId] = useState('');
     const [hash, setHash] = useState('');
     const [NFTname, setNFTname] = useState('');
-    const [status , setStatus] = useState('');
+    const [status, setStatus] = useState('');
 
 
 
 
-    var tokenID = (event)=>{
+    var tokenID = (event) => {
         setTokenId(event.target.value)
-      }
-    
-      var Hash = (event)=>{
+    }
+
+    var Hash = (event) => {
         setHash(event.target.value)
-      }
-      var nftName = (event)=>{
+    }
+    var nftName = (event) => {
         setNFTname(event.target.value)
-      }
+    }
 
 
-    var submit = (event) =>{
+    var submit = (event) => {
         event.preventDefault()
 
-        if(tokenId == '' || hash == '' || NFTname == ''){
+        if (tokenId === '' || hash === '' || NFTname === '') {
             setStatus("Gives Proper Data")
         }
-        else{
-        var token = tokenId
-        var Hash = hash
-        var nftName = NFTname
+        else {
+            var token = tokenId
+            var Hash = hash
+            var nftName = NFTname
         }
 
 
-        async function publicMint(){
-            if(typeof window.ethereum !== 'undefined'){
+        async function publicMint() {
+            if (typeof window.ethereum !== 'undefined') {
                 setStatus("wait")
-                try{
-                const data = "0xE47052f9aBbA29Bd7F061e1D910139827a0595CD";
-                const providers = new ethers.providers.Web3Provider(window.ethereum);
-                const signer = providers.getSigner();
-                const contract = new ethers.Contract(data, ContractABI, signer);
-                const sendTX = await contract.publicMint(token, Hash, nftName)
-                await sendTX.wait()
-                setStatus("Successfully Done")
+                try {
+                    const data = "0xE3605683A1fcbb9dbe9D9823B3935C1802313534";
+                    const providers = new ethers.providers.Web3Provider(window.ethereum);
+                    const signer = providers.getSigner();
+                    const contract = new ethers.Contract(data, ContractABI, signer);
+                    const sendTX = await contract.publicMint(token, Hash, nftName)
+                    await sendTX.wait()
+                    console.log(sendTX)
+                    setStatus("Successfully Done")
 
                 }
-                catch {
+                catch (err) {
+                    console.log(err)
                     setStatus("Gives Proper Data")
 
                 }
             }
-            else{
+            else {
                 setStatus("Not Working")
 
             }
@@ -75,7 +77,7 @@ function PublicMinting() {
                             <div className=" align-items-center">
                                 <div className="card-body p-lg-3 p-4 text-black">
 
-                                <form onSubmit={submit}>
+                                    <form onSubmit={submit}>
 
                                         <div className="d-flex align-items-center mb-3 pb-1">
 
@@ -102,7 +104,7 @@ function PublicMinting() {
                                         <div className="pt-1 mb-4">
                                             <button className="btn btn-outline-success" type="submit" >Mint NFT</button>
                                             <p className='text-danger'>{status}</p>
-                                            
+
                                         </div>
                                     </form>
 

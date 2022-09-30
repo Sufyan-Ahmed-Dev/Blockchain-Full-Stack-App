@@ -1,11 +1,11 @@
 import React from 'react'
 
 function BalanceOf() {
-  return (
-    
+    return (
 
-    <>
-<div className="container py-5 ">
+
+        <>
+            <div className="container py-5 ">
                 <div className="row d-flex justify-content-center align-items-center ">
                     {/* <div className="col "> */}
                     <div className="card shadow-lg p-3 mb-5 bg-body rounded border border-5" >
@@ -44,10 +44,10 @@ function BalanceOf() {
                 </div>
             </div>
 
-</>
+        </>
 
 
-  )
+    )
 }
 
 export default BalanceOf

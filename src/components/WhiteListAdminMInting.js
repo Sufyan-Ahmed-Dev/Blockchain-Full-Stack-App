@@ -1,4 +1,4 @@
-import React,{useState} from 'react'
+import React, { useState } from 'react'
 import ContractABI from './Contract/contractABI.json'
 import { ethers } from 'ethers';
 
@@ -8,54 +8,56 @@ function WhiteListAdminMInting() {
     const [tokenId, setTokenId] = useState('');
     const [hash, setHash] = useState('');
     const [NFTname, setNFTname] = useState('');
-    const [status , setStatus] = useState('')
+    const [status, setStatus] = useState('')
 
 
 
-    var tokenID = (event)=>{
+    var tokenID = (event) => {
         setTokenId(event.target.value)
-      }
-    
-      var Hash = (event)=>{
+    }
+
+    var Hash = (event) => {
         setHash(event.target.value)
-      }
-      var nftName = (event)=>{
+    }
+    var nftName = (event) => {
         setNFTname(event.target.value)
-      }
+    }
 
 
-    var submit = (event) =>{
+    var submit = (event) => {
         event.preventDefault()
 
-        if(tokenId == '' || hash == '' || NFTname == ''){
+        if (tokenId === '' || hash === '' || NFTname === '') {
             setStatus("Gives Proper Data")
         }
-        else{
-        var token = tokenId
-        var Hash = hash
-        var nftName = NFTname
+        else {
+            var token = tokenId
+            var Hash = hash
+            var nftName = NFTname
         }
 
 
-        async function AdminMint(){
-            if(typeof window.ethereum !== 'undefined'){
+        async function AdminMint() {
+            if (typeof window.ethereum !== 'undefined') {
                 setStatus("wait")
-                try{
-                const data = "0xE47052f9aBbA29Bd7F061e1D910139827a0595CD";
-                const providers = new ethers.providers.Web3Provider(window.ethereum);
-                const signer = providers.getSigner();
-                const contract = new ethers.Contract(data, ContractABI, signer);
-                const sendTX = await contract.AdminMint(token, Hash, nftName)
-                await sendTX.wait()
-                setStatus("Sucessfully Done")
+                try {
+                    const data = "0xE3605683A1fcbb9dbe9D9823B3935C1802313534";
+                    const providers = new ethers.providers.Web3Provider(window.ethereum);
+                    const signer = providers.getSigner();
+                    const contract = new ethers.Contract(data, ContractABI, signer);
+                    const sendTX = await contract.AdminMint(token, Hash, nftName)
+                    await sendTX.wait()
+                    console.log(sendTX);
+                    setStatus("Sucessfully Done")
 
                 }
-                catch{
+                catch (err) {
+                    console.log(err)
                     setStatus("Gives Proper Data")
 
                 }
             }
-            else{
+            else {
                 setStatus("Not working")
             }
         }
@@ -84,12 +86,12 @@ function WhiteListAdminMInting() {
                                         {/* <h5 className="fw-normal mb-3 pb-3">Sign into your account</h5> */}
 
                                         <div className="form-outline mb-3">
-                                            <input name='tokenId' type="number"  value={tokenId} onChange={tokenID} id="form2Example17" className="form-control" placeholder='Enter NFT token ID' />
+                                            <input name='tokenId' type="number" value={tokenId} onChange={tokenID} id="form2Example17" className="form-control" placeholder='Enter NFT token ID' />
                                             {/* <label className="form-label" Htmlfor="form2Example17">Account Address</label> */}
                                         </div>
 
                                         <div className="form-outline mb-3">
-                                            <input  name='hash' value={hash} onChange={Hash} type="text" id="form2Example27" className="form-control " placeholder='Enter Metadata Hash' />
+                                            <input name='hash' value={hash} onChange={Hash} type="text" id="form2Example27" className="form-control " placeholder='Enter Metadata Hash' />
                                             {/* <label className="form-label" Htmlfor="form2Example27"> Balance</label> */}
                                         </div>
 
