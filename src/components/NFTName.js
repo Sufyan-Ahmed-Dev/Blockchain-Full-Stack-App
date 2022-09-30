@@ -36,18 +36,18 @@ function NFTName() {
                     const contract = new ethers.Contract(data, ContractABI, signer);
                     const sendTX = await contract.NftNames(Name)
                     // await sendTX.wait()
-                    const check = sendTX.toString()
+                    const check = sendTX
                     console.log(check)
                     setStatus(check)
 
                 }
                 catch (err) {
-                    if(name === ''){
-                        setStatus("Gives Proper Data")
-                    }else{
-                        console.log(err)
-                        setStatus(err.error.message);
-                    }
+                    // if(name === ''){
+                    //     setStatus("Gives Proper Data")
+                    // }else{
+                        console.log(err.errorArgs)
+                        // setStatus(err.error.message);
+                    // }
                    
 
                 }

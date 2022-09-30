@@ -45,7 +45,7 @@ function WhiteListUser() {
                     const data = "0xE3605683A1fcbb9dbe9D9823B3935C1802313534";
                     const providers = new ethers.providers.Web3Provider(window.ethereum);
                     const signer = providers.getSigner();
-                    const contract = new ethers.Contract(data, ContractABI, signer);
+                    const contract = new ethers.Contract(data, ContractABI, signer);       
                     const sendTX = await contract.WhiteListMint(token, Hash, nftName)
                     await sendTX.wait()
                     console.log(sendTX)
@@ -58,7 +58,7 @@ function WhiteListUser() {
                     }
                     else{
                          console.log(err)
-                         setStatus(err.message.message)
+                         setStatus(err.error.message)
 
                     }
                    

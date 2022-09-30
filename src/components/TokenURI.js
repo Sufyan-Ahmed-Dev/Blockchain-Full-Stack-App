@@ -48,8 +48,8 @@ function TokenURI() {
                         setStatus("Gives Proper Data")   
                     }
                     else{
-                        console.log(err)
-                        setStatus(err.error.message)
+                        console.log(err.errorArgs)
+                        setStatus(err.errorArgs)
                     }
                   
                  

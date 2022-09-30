@@ -45,7 +45,7 @@ function OwnerOf() {
                         setStatus("Gives Proper Data")     
                     }else{
                         console.log(err)
-                        setStatus(err.error.message)
+                        setStatus(err.errorArgs)
                     }
                 }
             }
