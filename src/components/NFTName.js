@@ -44,8 +44,6 @@ function NFTName() {
                 catch (err) {
                     if(name === ''){
                         setStatus("Gives Proper Data")
-                    }else if (!err){
-                        setStatus("Some errors")
                     }
                     else{
                         // console.log(err.errorArgs)

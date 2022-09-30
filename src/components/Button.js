@@ -168,13 +168,10 @@ function Button() {
                         console.log(sendTX);
                         setdeActivePub("DeActivated");
                   } catch (err){
-                        if(err){
+                      
                               setdeActivePub(err.error.message);
-                        }
-                        else{
-                            
-                              setdeActivePub("Reject on Metamask");
-                        }
+                        
+                      
                        
                   }
             }
@@ -195,13 +192,8 @@ function Button() {
                         console.log(sendTX);
                         setActivePub("Activated");
                   } catch(err) {
-                        if(!err){
-                              setActivePub(err.error.message);
-                        }
-                        else{
-                            
-                              setActivePub("Reject on Metamask");
-                        }
+                 
+                              setActivePub(err.error.message);                     
                   }
             }
 
@@ -222,11 +214,7 @@ function Button() {
                         console.log(sendTX);
                         setcheckPaused("Pause");
                   } catch (err){
-                        if(!err){
                               setcheckPaused(err.error.message);
-                        }else{
-                              setcheckPaused("Reject on Metamask")
-                        }
                       
                   }
             }
@@ -249,15 +237,12 @@ function Button() {
                         console.log(sendTX);
                         setunPaused("UnPause");
                   } catch (err){
-                        if(!err){
-                              setunPaused(err.error.message);
-                        }else{
-                              setunPaused("Reject on Metamask");
-                        }        
                        
-                  }
-            }
-
+                              setunPaused(err.error.message);
+                        
+                        }       
+                       
+                  }    
             else {
                   setunPaused("Something went Wrong");
             }

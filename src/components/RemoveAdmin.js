@@ -44,13 +44,10 @@ function RemoveAdmin() {
                 catch (err) {
                     if(addr === ''){
                         setStatus("Gives Proper Data")
-                    }else if (!err){
+                    }else{
                         console.log(err)
                         setStatus(err.error.message)
-                    }else{
-                        setStatus("Reject on Metamask")
                     }
-                  
 
                 }
             }

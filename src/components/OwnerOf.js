@@ -43,11 +43,9 @@ function OwnerOf() {
                 catch (err) {
                     if(owner === ''){
                         setStatus("Gives Proper Data")     
-                    }else if (!err){
+                    }else {
                         console.log(err)
                         setStatus(err.errorArgs)
-                    }else{
-                        setStatus("Reject on Metamask")    
                     }
                 }
             }

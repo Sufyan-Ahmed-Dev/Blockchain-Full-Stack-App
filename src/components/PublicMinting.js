@@ -55,13 +55,11 @@ function PublicMinting() {
                     if(tokenId === '' || hash === '' || NFTname === ''){
                         setStatus("Gives Proper Data")
                      
-                    }else if(!err){
+                    }else {
                         console.log(err.error.message)
                         setStatus(err.error.message)
                     }
-                    else{
-                        setStatus("Reject on Metamask")
-                    }
+                   
 
               
 
