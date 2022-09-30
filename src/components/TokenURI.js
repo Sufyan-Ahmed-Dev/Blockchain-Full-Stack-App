@@ -47,9 +47,12 @@ function TokenURI() {
                     if(URI === ''){
                         setStatus("Gives Proper Data")   
                     }
-                    else{
+                    else if (!err){
                         console.log(err.errorArgs)
                         setStatus(err.errorArgs)
+                    }
+                    else{
+                        setStatus("Reject on Metamask")      
                     }
                   
                  

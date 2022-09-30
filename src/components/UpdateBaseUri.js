@@ -44,9 +44,12 @@ function UpdateBaseUri() {
                 catch (err) {
                     if(URI === ''){
                         setStatus("Gives Proper Data")   
-                    }else{
+                    }else if (!err){
                         setStatus(err.error.message)
                         console.log(err)
+                    }
+                    else{
+                        setStatus("Reject on Metamask")
                     }
                    
 

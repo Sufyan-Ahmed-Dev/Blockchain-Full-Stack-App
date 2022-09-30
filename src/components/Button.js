@@ -168,7 +168,14 @@ function Button() {
                         console.log(sendTX);
                         setdeActivePub("DeActivated");
                   } catch (err){
-                        setdeActivePub(err.error.message);
+                        if(err){
+                              setdeActivePub(err.error.message);
+                        }
+                        else{
+                            
+                              setdeActivePub("Reject on Metamask");
+                        }
+                       
                   }
             }
 
@@ -188,8 +195,13 @@ function Button() {
                         console.log(sendTX);
                         setActivePub("Activated");
                   } catch(err) {
-                        // console.log(err.error.message.key)
-                        setActivePub(err.error.message);
+                        if(!err){
+                              setActivePub(err.error.message);
+                        }
+                        else{
+                            
+                              setActivePub("Reject on Metamask");
+                        }
                   }
             }
 
@@ -210,7 +222,12 @@ function Button() {
                         console.log(sendTX);
                         setcheckPaused("Pause");
                   } catch (err){
-                        setcheckPaused(err.error.message);
+                        if(!err){
+                              setcheckPaused(err.error.message);
+                        }else{
+                              setcheckPaused("Reject on Metamask")
+                        }
+                      
                   }
             }
 
@@ -232,9 +249,11 @@ function Button() {
                         console.log(sendTX);
                         setunPaused("UnPause");
                   } catch (err){
-                  
-                        setunPaused("error");
-                        setunPaused(err.error.message);
+                        if(!err){
+                              setunPaused(err.error.message);
+                        }else{
+                              setunPaused("Reject on Metamask");
+                        }        
                        
                   }
             }

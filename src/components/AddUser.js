@@ -46,10 +46,11 @@ function AddUser() {
                     if(addr === ''){
                         setStatus("Gives Proper Data")
                     }
-                    else{
+                    else if (!err){
                         console.log(err)
                         setStatus(err.error.message)
-
+                    }else{
+                        setStatus("Reject on Metamask")
                     }
                    
 
