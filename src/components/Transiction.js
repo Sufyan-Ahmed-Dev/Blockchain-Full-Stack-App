@@ -12,6 +12,8 @@ function Transiction() {
             {/* <h2>Courses</h2> */}
             <p>Transiction</p>
           </div>
+          <p>working Soon in this section</p>
+          
 
           <div className="row" data-aos="zoom-in" data-aos-delay="100">
 

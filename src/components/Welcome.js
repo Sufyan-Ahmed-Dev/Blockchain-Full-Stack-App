@@ -1,11 +1,15 @@
 import React, { useEffect } from 'react'
 import { useState } from 'react';
-import { ethers } from 'ethers'
+import { ethers } from 'ethers';
+
 
 function Welcome() {
   const [errorMessage, setErrorMessage] = useState(null);
   const [account, setAccount] = useState(null);
   const [balance, setBalance] = useState(null);
+
+
+
 
   useEffect(() => {
     if (window.ethereum) {
