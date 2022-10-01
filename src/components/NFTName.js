@@ -37,8 +37,14 @@ function NFTName() {
                     const sendTX = await contract.NftNames(Name)
                     // await sendTX.wait()
                     const check = sendTX
-                    console.log(check)
-                    setStatus(check)
+                    if(check === ""){
+                        setStatus("Invalid Token ID")
+                    }else{
+                        console.log(check)
+                        setStatus(check)
+                    }
+
+                  
 
                 }
                 catch (err) {
