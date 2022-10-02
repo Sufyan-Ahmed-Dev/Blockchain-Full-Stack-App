@@ -32,7 +32,6 @@ function CheckWhiteListAdmin() {
                     const data = "0xE3605683A1fcbb9dbe9D9823B3935C1802313534";
                     const providers = new ethers.providers.Web3Provider(window.ethereum);
                     const signer = providers.getSigner();
-                    setStatus("Gives Correct Data")
                     const contract = new ethers.Contract(data, ContractABI, signer);
                     const sendTX = await contract.WhiteListAdmin(CheckAdmin)
                     // await sendTX.wait()
