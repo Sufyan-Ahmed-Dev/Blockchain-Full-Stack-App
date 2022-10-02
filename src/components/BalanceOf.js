@@ -31,7 +31,10 @@ function BalanceOf() {
                 setStatus("wait")
                 if(Balance.length !== 42){
                     setStatus("Address Length less then 42 Character")
-                }else if(Balance.length === 42 ){
+                }else if (Balance.length < 42){
+                    setStatus("Address Length greater then 42 Character")
+                }
+                else if(Balance.length === 42 ){
                     try {
                         const data = "0xE3605683A1fcbb9dbe9D9823B3935C1802313534";
                         const providers = new ethers.providers.Web3Provider(window.ethereum);
