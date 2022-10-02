@@ -79,7 +79,7 @@ function OwnerOf() {
                                         {/* <h5 className="fw-normal mb-3 pb-3">Sign into your account</h5> */}
 
                                         <div className="form-outline mb-3">
-                                            <input name='owner' value={owner} onChange={Owner}  type="text" id="form2Example17" className="form-control" placeholder='Enter token ID' />
+                                            <input name='owner' value={owner} onChange={Owner}  type="number" id="form2Example17" className="form-control" placeholder='Enter token ID' />
                                             {/* <label className="form-label" Htmlfor="form2Example17">Account Address</label> */}
                                         </div>
 
