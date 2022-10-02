@@ -30,10 +30,10 @@ function AddAdmin() {
         async function addWhiteListadmin() {
             if (typeof window.ethereum !== 'undefined') {
                 setStatus("wait")
-                if(ADDR.length !== 42){
+                if(ADDR.length < 42){
                     setStatus("Address Length less then 42 Character")
                 }
-                else if (ADDR.length < 42){
+                else if (ADDR.length > 42){
                     setStatus("Address Length greater then 42 Character")
                 }
                 else if(ADDR.length === 42){

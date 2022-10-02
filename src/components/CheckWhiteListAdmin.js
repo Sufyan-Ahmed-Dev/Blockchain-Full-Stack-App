@@ -27,27 +27,37 @@ function CheckWhiteListAdmin() {
 
         async function ownerOf() {
             if (typeof window.ethereum !== 'undefined') {
-                setStatus("wait")
-                try {
-                    const data = "0xE3605683A1fcbb9dbe9D9823B3935C1802313534";
-                    const providers = new ethers.providers.Web3Provider(window.ethereum);
-                    const signer = providers.getSigner();
-                    const contract = new ethers.Contract(data, ContractABI, signer);
-                    const sendTX = await contract.WhiteListAdmin(CheckAdmin)
-                    // await sendTX.wait()
-                    const check = sendTX.toString()
-                    console.log(check)
-                    setStatus(check)
-
+                setStatus("wait");
+                if(CheckAdmin.length < 42){
+                    setStatus("Address Length less then 42 Character");
                 }
-                catch (err) {
-                    if(checkAdmin === ''){
-                        setStatus("Gives Proper Data")
-                    }else{
-                        console.log(err)
-                        setStatus(err.error.message)    
-                    }   
+                else if (checkAdmin.length > 42){
+                    setStatus("Address Length Greater then 42 Character");
+                }else if (CheckAdmin.length ===42){
+                    try {
+                        const data = "0xE3605683A1fcbb9dbe9D9823B3935C1802313534";
+                        const providers = new ethers.providers.Web3Provider(window.ethereum);
+                        const signer = providers.getSigner();
+                        const contract = new ethers.Contract(data, ContractABI, signer);
+                        const sendTX = await contract.WhiteListAdmin(CheckAdmin)
+                        // await sendTX.wait()
+                        const check = sendTX.toString()
+                        console.log(check)
+                        setStatus(check)
+    
+                    }
+                    catch (err) {
+                        if(checkAdmin === ''){
+                            setStatus("Gives Proper Data")
+                        }else{
+                            console.log(err)
+                            setStatus(err.error.message)    
+                        }   
+                    }
+                }else{
+                    setStatus("Something Went Wrong ")
                 }
+            
             }
             else {
                 setStatus("Not Working")

@@ -30,8 +30,11 @@ function RemoveUser() {
         async function removeWhiteListUser() {
             if (typeof window.ethereum !== 'undefined') {
                 setStatus("wait")
-                if(ADDR.length !== 42){
+                if(ADDR.length < 42){
                     setStatus("Address Length less then 42 Character")
+                }
+                else if (ADDR.length > 42){
+                    setStatus("Address Length Greater then 42 Character")
                 }
                 else if(ADDR.length === 42){
                     try {

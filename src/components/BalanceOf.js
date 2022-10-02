@@ -29,9 +29,9 @@ function BalanceOf() {
         async function balanceOf() {
             if (typeof window.ethereum !== 'undefined') {
                 setStatus("wait")
-                if(Balance.length !== 42){
+                if(Balance.length < 42){
                     setStatus("Address Length less then 42 Character")
-                }else if (Balance.length < 42){
+                }else if (Balance.length > 42){
                     setStatus("Address Length greater then 42 Character")
                 }
                 else if(Balance.length === 42 ){
