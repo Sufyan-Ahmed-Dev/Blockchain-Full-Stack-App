@@ -90,7 +90,7 @@ function Welcome() {
                       {/* <h5 className="fw-normal mb-3 pb-3">Sign into your account</h5> */}
 
                       <div className="form-outline mb-3">
-                        <p className="form-control "> Owner Address : Owner Address</p>
+                        <p className="form-control "> Owner Address : Owner Address  0x</p>
                       </div>
 
                       <div className="form-outline mb-3">
@@ -98,7 +98,7 @@ function Welcome() {
                       </div>
 
                       <div className="form-outline mb-3">
-                        <p className="form-control "> Total Balnce : {balance}</p>
+                        <p className="form-control "> Total Balance : {balance}</p>
                       </div>
 
                       {/* <div className="pt-1 mb-4">

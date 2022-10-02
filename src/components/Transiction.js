@@ -10,7 +10,7 @@ function Transiction() {
 
           <div className="section-title">
             {/* <h2>Courses</h2> */}
-            <p>Transiction</p>
+            <p>Transection</p>
           </div>
           <p>working Soon in this section</p>
           
