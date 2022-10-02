@@ -30,27 +30,35 @@ function AddAdmin() {
         async function addWhiteListadmin() {
             if (typeof window.ethereum !== 'undefined') {
                 setStatus("wait")
-                try {
-                    const data = "0xE3605683A1fcbb9dbe9D9823B3935C1802313534";
-                    const providers = new ethers.providers.Web3Provider(window.ethereum);
-                    const signer = providers.getSigner();
-                    const contract = new ethers.Contract(data, ContractABI, signer);
-                    const sendTX = await contract.addWhiteListadmin(ADDR)
-                    await sendTX.wait()
-                    console.log(sendTX)
-                    setStatus("Succesfully Done")
-
+                if(ADDR.length !== 42){
+                    setStatus("Address Length less then 42 Character")
                 }
-                catch (err) {
-                    if(addr === ''){
-                        setStatus("Gives Proper Data")
-                    }else{
-                        console.log(err)
-                        setStatus(err.error.message)
+                else if(ADDR.length === 42){
+                    try {
+                        const data = "0xE3605683A1fcbb9dbe9D9823B3935C1802313534";
+                        const providers = new ethers.providers.Web3Provider(window.ethereum);
+                        const signer = providers.getSigner();
+                        const contract = new ethers.Contract(data, ContractABI, signer);
+                        const sendTX = await contract.addWhiteListadmin(ADDR)
+                        await sendTX.wait()
+                        console.log(sendTX)
+                        setStatus("Succesfully Done")
+    
                     }
-                  
-
+                    catch (err) {
+                        if(addr === ''){
+                            setStatus("Gives Proper Data")
+                        }else{
+                            console.log(err)
+                            setStatus(err.error.message)
+                        }
+                      
+    
+                    }
+                }else{
+                    setStatus("SomeThing Went Wrong")
                 }
+              
             }
             else {
                 setStatus("Not Working")

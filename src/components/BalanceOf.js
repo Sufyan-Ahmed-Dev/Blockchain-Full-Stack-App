@@ -29,30 +29,38 @@ function BalanceOf() {
         async function balanceOf() {
             if (typeof window.ethereum !== 'undefined') {
                 setStatus("wait")
-                try {
-                    const data = "0xE3605683A1fcbb9dbe9D9823B3935C1802313534";
-                    const providers = new ethers.providers.Web3Provider(window.ethereum);
-                    const signer = providers.getSigner();
-                    const contract = new ethers.Contract(data, ContractABI, signer);
-                    const sendTX = await contract.balanceOf(Balance)
-                    // await sendTX.wait()
-                    const check = sendTX.toNumber()
-                    console.log(check)
-                    setStatus(check)
-
-                }
-                catch (err) {
-                    if(balance === ''){
-                        setStatus("Gives Proper Data")
+                if(Balance.length !== 42){
+                    setStatus("Address Length less then 42 Character")
+                }else if(Balance.length === 42 ){
+                    try {
+                        const data = "0xE3605683A1fcbb9dbe9D9823B3935C1802313534";
+                        const providers = new ethers.providers.Web3Provider(window.ethereum);
+                        const signer = providers.getSigner();
+                        const contract = new ethers.Contract(data, ContractABI, signer);
+                        const sendTX = await contract.balanceOf(Balance)
+                        // await sendTX.wait()
+                        const check = sendTX.toNumber()
+                        console.log(check)
+                        setStatus(check)
+    
                     }
-                    else{
-                        console.log(err)
-                        setStatus(err.error.message)
+                    catch (err) {
+                        if(balance === ''){
+                            setStatus("Gives Proper Data")
+                        }
+                        else{
+                            console.log(err)
+                            setStatus(err.error.message)
+                        }
+                      
+                      
+    
                     }
-                  
-                  
-
                 }
+                else{
+                    setStatus("Something Went Wrong")
+                }
+              
             }
             else {
                 setStatus("Not Working")

@@ -30,29 +30,36 @@ function AddUser() {
         async function addWhiteListUser() {
             if (typeof window.ethereum !== 'undefined') {
                 setStatus("wait")
-                try {
-                    const data = "0xE3605683A1fcbb9dbe9D9823B3935C1802313534";
-                    const providers = new ethers.providers.Web3Provider(window.ethereum);
-                    const signer = providers.getSigner();
-                    const contract = new ethers.Contract(data, ContractABI, signer);
-                    const sendTX = await contract.addWhiteListUser(ADDR)
-                    await sendTX.wait()
-                    const check = sendTX.toString()
-                    console.log(check)
-                    setStatus("Successfully Done")
-
-                }
-                catch (err) {
-                    if(addr === ''){
-                        setStatus("Gives Proper Data")
+                if(ADDR.length !== 42){
+                    setStatus("Address Length less then 42 Character")
+                }else if (ADDR.length === 42){
+                    try {
+                        const data = "0xE3605683A1fcbb9dbe9D9823B3935C1802313534";
+                        const providers = new ethers.providers.Web3Provider(window.ethereum);
+                        const signer = providers.getSigner();
+                        const contract = new ethers.Contract(data, ContractABI, signer);
+                        const sendTX = await contract.addWhiteListUser(ADDR)
+                        await sendTX.wait()
+                        const check = sendTX.toString()
+                        console.log(check)
+                        setStatus("Successfully Done")
+    
                     }
-                    else{
-                        console.log(err)
-                        setStatus(err.error.message)
+                    catch (err) {
+                        if(addr === ''){
+                            setStatus("Gives Proper Data")
+                        }
+                        else{
+                            console.log(err)
+                            setStatus(err.error.message)
+                        }
+                       
+    
                     }
-                   
-
+                }else{
+                    setStatus("Something Went Wrong ")
                 }
+              
             }
             else {
                 setStatus("Not Working")
