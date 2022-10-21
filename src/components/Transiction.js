@@ -1,4 +1,5 @@
 import React from 'react'
+import CollectionApi from './OpenSeaApi/CollectionApi'
 
 function Transiction() {
   return (
@@ -14,7 +15,7 @@ function Transiction() {
           </div>
           <p>working Soon in this section</p>
           
-
+          <CollectionApi></CollectionApi>
           <div className="row" data-aos="zoom-in" data-aos-delay="100">
 
             <div className="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-lg-0 ">

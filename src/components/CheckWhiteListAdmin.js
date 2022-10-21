@@ -7,8 +7,6 @@ function CheckWhiteListAdmin() {
     const [status, setStatus] = useState('');
 
 
-
-
     var CheckAdmin = (event) => {
         setcheckAdmin(event.target.value)
     }
