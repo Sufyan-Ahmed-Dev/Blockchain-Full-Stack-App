@@ -54,6 +54,8 @@ function Welcome() {
     setBalance(null);
   };
 
+
+
   return (
     <>
       <div className="container ">
@@ -120,3 +122,5 @@ function Welcome() {
 }
 
 export default Welcome
+
+
