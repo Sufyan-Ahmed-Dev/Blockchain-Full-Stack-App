@@ -13,7 +13,7 @@ function Transiction() {
             {/* <h2>Courses</h2> */}
             <p>Transection</p>
           </div>
-          <p>working Soon in this section</p>
+          <p>Click Below Button</p>
           
           <CollectionApi></CollectionApi>
           {/* <div className="row" data-aos="zoom-in" data-aos-delay="100">
