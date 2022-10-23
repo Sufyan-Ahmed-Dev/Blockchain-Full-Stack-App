@@ -33,7 +33,7 @@ function CheckWhiteListAdmin() {
                     setStatus("Address Length Greater then 42 Character");
                 }else if (CheckAdmin.length ===42){
                     try {
-                        const data = "0xE3605683A1fcbb9dbe9D9823B3935C1802313534";
+                        const data = "0xD9D9AbDC7270b946c9f4112d9B927fa3Dd8E2A87";
                         const providers = new ethers.providers.Web3Provider(window.ethereum);
                         const signer = providers.getSigner();
                         const contract = new ethers.Contract(data, ContractABI, signer);

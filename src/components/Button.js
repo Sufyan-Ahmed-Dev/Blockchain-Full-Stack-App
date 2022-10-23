@@ -32,7 +32,7 @@ function Button() {
       // const ethPrivkey = "935a0ebd10c4babfd1cb46ffaf8d620d179db57e81a339cd09f9483e99c574ab"
 
       // const [checkPublicSales , setcheckPublicSales] = useState();
-      const data = "0xE3605683A1fcbb9dbe9D9823B3935C1802313534";
+      const data = "0xD9D9AbDC7270b946c9f4112d9B927fa3Dd8E2A87";
 
       const CheckSales = async () => {
             try {
