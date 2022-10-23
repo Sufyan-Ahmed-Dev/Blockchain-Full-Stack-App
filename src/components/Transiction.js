@@ -16,11 +16,10 @@ function Transiction() {
           <p>working Soon in this section</p>
           
           <CollectionApi></CollectionApi>
-          <div className="row" data-aos="zoom-in" data-aos-delay="100">
+          {/* <div className="row" data-aos="zoom-in" data-aos-delay="100">
 
             <div className="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-lg-0 ">
               <div className="course-item">
-                {/* <img src="assets/img/course-3.jpg" className="img-fluid" alt="..."/> */}
                 <div className="course-content">
                   <div className="d-flex justify-content-between align-items-center mb-3">
                     <h4>Ether</h4>
@@ -31,7 +30,6 @@ function Transiction() {
                   <p>Buyer Address And message</p>
                   <div className="trainer d-flex justify-content-between align-items-center">
                     <div className="trainer-profile d-flex align-items-center">
-                      {/* <img src="assets/img/trainers/trainer-3.jpg" className="img-fluid" alt=""/> */}
                       <span>Account name</span>
                     </div>
                     <div className="trainer-rank d-flex align-items-center">
@@ -43,9 +41,8 @@ function Transiction() {
                 </div>
               </div>
             </div>
-            {/* <!-- End Course Item--> */}
 
-          </div>
+          </div> */}
 
         </div>
       </section>

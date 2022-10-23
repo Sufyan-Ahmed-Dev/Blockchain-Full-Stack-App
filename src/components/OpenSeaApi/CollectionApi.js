@@ -12,13 +12,12 @@ function CollectionApi() {
     axios
       .get(url)
       .then((item) => {
-        const arrayCheck = item.data.assets;
-        // console.log(item.data.assets)
-        // console.log(item.data.assets)
-        if (arrayCheck.length == 0) {
+      
+        if (item.data.assets.length === 0) {
           console.log("data is Null");
           setErr("This Account Have No NFT");
-        } else {
+        }
+        else {
           console.log(item.data.assets);
           console.log("Data Recieved");
           setData(item.data.assets);
@@ -30,10 +29,15 @@ function CollectionApi() {
   }, [account]);
 
   const connectMetamask = async () => {
-    const account = await window.ethereum.request({
-      method: "eth_requestAccounts",
-    });
-    setAccount(account[0]);
+    if (!window.ethereum) {
+      setErr("Install Metamask")
+    }
+    else {
+      const account = await window.ethereum.request({
+        method: "eth_requestAccounts",
+      });
+      setAccount(account[0]);
+    }
   };
 
   return (
@@ -60,7 +64,7 @@ function CollectionApi() {
                   <div className="card-title border border-dark border border-dark">
                     <p>{item.name}</p>
                     <p>{item.id}</p>
-                    {/* <p>{ item.traits.trait_type}</p>/ */}
+                    <span>Created-Date</span><p>{ item.asset_contract.created_date}</p>
                   </div>
                  
 
