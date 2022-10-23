@@ -11,7 +11,7 @@ function Transiction() {
 
           <div className="section-title">
             {/* <h2>Courses</h2> */}
-            <p>Transection</p>
+            <p>Your NFT Collection</p>
           </div>
           <p>Click Below Button</p>
           
