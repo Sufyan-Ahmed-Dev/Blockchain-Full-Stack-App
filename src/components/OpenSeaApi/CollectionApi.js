@@ -28,7 +28,7 @@ function CollectionApi() {
       });
   }, [account]);
 
-  useEffect(() => { 
+
     const connectMetamask = async () => {
       if (!window.ethereum) {
         setErr("Install Metamask")
@@ -40,16 +40,14 @@ function CollectionApi() {
         setAccount(account[0]);
       }
     };
-    connectMetamask()
-  },[setAccount])
-
+  
 
   return (
     <>
       {/* <h1>Api calling </h1>; */}
-      {/* <button className="btn btn-success" onClick={connectMetamask}>
+      <button className="btn btn-success" onClick={connectMetamask}>
         Check NFT
-      </button> */}
+      </button>
       <div className=" container row">
         <p>{err}</p>
 
