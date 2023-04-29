@@ -12,12 +12,12 @@ function Navbar() {
           {/* <!-- <a href="index.html" className="logo me-auto"><img src="assets/img/logo.png" alt="" className="img-fluid"></a>--> */}
 
           <nav id="navbar" className="navbar order-last order-lg-0">
-            <ul>
+            {/* <ul>
               <li><a className="active" href="index.html">Home</a></li>
               <li><a href="#about.html">About</a></li>
               <li><a href="#courses.html">Services</a></li>
               <li><a href="#trainers.html">Transiction</a></li>
-            </ul>
+            </ul> */}
             <i className="bi bi-list mobile-nav-toggle"></i>
           </nav>
           {/* !-- .navbar --> */}

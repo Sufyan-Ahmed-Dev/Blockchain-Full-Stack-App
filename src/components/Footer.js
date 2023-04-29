@@ -8,7 +8,7 @@ function Footer() {
   {/* <!-- Copyright --> */}
   <div className="text-center text-white p-3" >
     © 2022 Copyright:
-    <span>   Sufyan Ahmed with Zesshan Nawaz</span>   
+    <span>   Sufyan Ahmed</span>   
      {/* <a class="text-dark" href="https://mdbootstrap.com/">MDBootstrap.com</a> */}
   </div>
   {/* <!-- Copyright --> */}
